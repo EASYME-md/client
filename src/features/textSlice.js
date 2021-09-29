@@ -7,7 +7,7 @@ export const slice = createSlice({
   },
   reducers: {
     inputText: (state, action) => {
-      state.text = action.payload;
+      state.value = action.payload;
     }
   }
 });
