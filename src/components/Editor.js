@@ -11,17 +11,27 @@ const Editor = () => {
   const dispatch = useDispatch();
   const text = useSelector((state) => state.text.value);
 
-  const onChangeText = (e) => {
-    dispatch((inputText(e)));
+  const onChangeText = (content, delta, source, editor) => {
+    dispatch(inputText(editor.getText(content)));
   }
 
   return (
-    <ReactQuill css={editor} theme="snow" value={text} onChange={onChangeText} />
+    <>
+      <ReactQuill
+        css={editor}
+        theme="snow"
+        defaultValue={text}
+        onChange={onChangeText}
+      />
+    </>
   );
 }
 
 const editor = css`
-  width: 50%;
+  position: absolute;
+  left: 0px;
+  padding: 20px;
+  width: 40%;
   height: 70vh;
 `;
 
