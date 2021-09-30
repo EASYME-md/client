@@ -3,9 +3,10 @@ import React from 'react';
 import { css } from '@emotion/react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
 import { useDispatch, useSelector } from 'react-redux';
+
 import { inputText } from '../features/textSlice';
+import CustomToolbar, { modules, formats } from './CustomToolbar';
 
 const Editor = () => {
   const dispatch = useDispatch();
@@ -17,15 +18,18 @@ const Editor = () => {
 
   return (
     <>
+      <CustomToolbar />
       <ReactQuill
         css={editor}
         theme="snow"
         defaultValue={text}
         onChange={onChangeText}
+        modules={modules}
+        formats={formats}
       />
     </>
   );
-}
+};
 
 const editor = css`
   position: absolute;

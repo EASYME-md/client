@@ -15,7 +15,7 @@ const Preview = () => {
       rehypePlugins={[rehypeRow]}
     />
   );
-}
+};
 
 const preview = css`
   position: absolute;
