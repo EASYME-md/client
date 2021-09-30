@@ -6,6 +6,7 @@ import CustomHeader, { handleHeader } from './CustomTools/CustomHeader';
 import CustomBold, { handleBold } from './CustomTools/CustomBold';
 import CustomItalic, { handleItalic } from './CustomTools/CustomItalic';
 import CustomStrikethrough, { handleStrikethrough } from './CustomTools/CustomStrikethrough';
+import CustomUnderline, { handleUnderline } from './CustomTools/CustomUnderline';
 import CustomHorizontalRule, { handleHorizontalRule } from './CustomTools/CustomHorizontalRule';
 import CustomBlockQuote, { handleBlockQuote } from './CustomTools/CustomBlockQuote';
 import CustomFold, { handleFold } from './CustomTools/CustomFold';
@@ -35,6 +36,7 @@ const CustomToolbar = () => {
       <CustomBold />
       <CustomItalic />
       <CustomStrikethrough />
+      <CustomUnderline />
       <CustomHorizontalRule />
       <CustomBlockQuote />
       <CustomFold />
@@ -69,6 +71,12 @@ export const modules = {
       header: handleHeader,
       bold: handleBold,
       italic: handleItalic,
+      strike: handleStrikethrough,
+      underline: handleUnderline,
+      'horizontal-rule': handleHorizontalRule,
+      blockquote: handleBlockQuote,
+      fold: handleFold,
+      'first-letter-uppercase': handleFirstLetterUppercase,
     },
   },
   keyboard: {
@@ -83,6 +91,16 @@ export const modules = {
         shortKey: true,
         handler: handleItalic,
       },
+      strike: {
+        key: 'D',
+        shortKey: true,
+        handler: handleStrikethrough,
+      },
+      underline: {
+        key: 'U',
+        shortKey: true,
+        handler: handleUnderline,
+      }
     },
   },
 };

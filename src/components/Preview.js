@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
 import rehypeRow from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 const Preview = () => {
   const text = useSelector((state) => state.text.value);
@@ -13,6 +14,7 @@ const Preview = () => {
       children={text}
       css={preview}
       rehypePlugins={[rehypeRow]}
+      remarkPlugins={[remarkGfm]}
     />
   );
 };

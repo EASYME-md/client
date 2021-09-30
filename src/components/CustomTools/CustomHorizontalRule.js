@@ -1,16 +1,18 @@
 import React from 'react';
-import { FaRegWindowMinimize } from 'react-icons/fa';
+import { AiOutlineLine } from 'react-icons/ai';
 
 const CustomHorizontalRule = () => {
   return (
-    <button className='ql-horizontal-rule'>
-      <FaRegWindowMinimize />
+    <button className='ql-horizontal-rule' title='Horizontal rule'>
+      <AiOutlineLine fontSize={18} />
     </button>
   );
 };
 
 export function handleHorizontalRule() {
-  console.log('this is handler');
+  const cursorPosition = this.quill.getSelection()?.index;
+
+  this.quill.insertText(cursorPosition, '\n---\n');
 };
 
 export default CustomHorizontalRule;

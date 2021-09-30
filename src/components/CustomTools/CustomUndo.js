@@ -3,7 +3,7 @@ import { FaUndoAlt } from 'react-icons/fa';
 
 const CustomUndo = () => {
   return (
-    <button className='ql-undo'>
+    <button className='ql-undo' title='Undo'>
       <FaUndoAlt />
     </button>
   );
