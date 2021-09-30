@@ -8,7 +8,7 @@ const Title = () => {
       EASYME.md
     </div>
   );
-}
+};
 
 const title = css`
   margin-top: 3rem;

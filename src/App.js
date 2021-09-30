@@ -14,6 +14,6 @@ const App = () => {
       <SharingButton />
     </>
   );
-}
+};
 
 export default App;
