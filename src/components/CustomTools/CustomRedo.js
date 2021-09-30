@@ -3,7 +3,7 @@ import { FaRedoAlt } from 'react-icons/fa';
 
 const CustomRedo = () => {
   return (
-    <button className='ql-redo'>
+    <button className='ql-redo' title='Redo'>
       <FaRedoAlt />
     </button>
   )

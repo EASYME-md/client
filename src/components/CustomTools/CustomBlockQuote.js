@@ -2,12 +2,14 @@ import React from 'react';
 
 const CustomBlockQuote = () => {
   return (
-    <button className='ql-blockquote' />
+    <button className='ql-blockquote' title='Block quote' />
   );
 };
 
 export function handleBlockQuote() {
-  console.log('this is handler');
+  const cursorPosition = this.quill.getSelection()?.index;
+
+  this.quill.insertText(cursorPosition, '>');
 };
 
 export default CustomBlockQuote;
