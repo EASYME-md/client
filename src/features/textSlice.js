@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import WELCOME_MESSAGE from '../constants/welcomeMessage';
+
 export const slice = createSlice({
   name: 'text',
   initialState: {
-    value: '',
+    value: WELCOME_MESSAGE,
   },
   reducers: {
     inputText: (state, action) => {
