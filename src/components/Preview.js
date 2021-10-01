@@ -1,26 +1,23 @@
 import React from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
-import rehypeRow from 'rehype-raw';
-import remarkGfm from 'remark-gfm';
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const Preview = () => {
   const text = useSelector((state) => state.text.value);
 
   return (
-    <ReactMarkdown
-      children={text}
+    <MarkdownPreview
+      source={text}
       css={preview}
-      rehypePlugins={[rehypeRow]}
-      remarkPlugins={[remarkGfm]}
     />
   );
 };
 
 const preview = css`
   position: absolute;
+  overflow: scroll;
   right: 0px;
   margin: 20px;
   padding: 20px;
