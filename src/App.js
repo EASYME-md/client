@@ -8,10 +8,10 @@ import SharingButton from './components/SharingButton';
 const App = () => {
   return (
     <>
+      <SharingButton />
       <Title />
       <Editor />
       <Preview />
-      <SharingButton />
     </>
   );
 };
