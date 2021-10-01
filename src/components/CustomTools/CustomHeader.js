@@ -15,6 +15,9 @@ const CustomHeader = () => {
 
 export function handleHeader(content) {
   const cursorPosition = this.quill.getSelection()?.index;
+  const offset = this.quill.selection.getRange()[1].start.offset;
+  const startingPosition = cursorPosition - offset;
+
   let header = '';
 
   for (let i = 0; i < content; i++) {
@@ -23,8 +26,7 @@ export function handleHeader(content) {
 
   const result = header + ' ';
 
-  this.quill.insertText(cursorPosition, result);
-  this.quill.setSelection(cursorPosition + result.length);
+  this.quill.insertText(startingPosition, result);
 };
 
 export default CustomHeader;

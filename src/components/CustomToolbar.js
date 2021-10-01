@@ -1,5 +1,6 @@
 import React from 'react';
 
+import handleEnter from '../utils/handleEnter';
 import CustomUndo, { handleUndo } from './CustomTools/CustomUndo';
 import CustomRedo, { handleRedo } from './CustomTools/CustomRedo';
 import CustomHeader, { handleHeader } from './CustomTools/CustomHeader';
@@ -20,7 +21,6 @@ import CustomLink, { handleLink } from './CustomTools/CustomLink';
 import CustomImageLink, { handleImageLink } from './CustomTools/CustomImageLink';
 import CustomCodeInline, { handleCodeInline } from './CustomTools/CustomCodeInline';
 import CustomCodeBlock, { handleCodeBlock } from './CustomTools/CustomCodeBlock';
-import CustomLanguageCodeBlock, { handleLanguageCodeBlock } from './CustomTools/CustomLanguageCodeBlock';
 import CustomTable, { handleTable } from './CustomTools/CustomTable';
 import CustomEditorView, { handleEditorView } from './CustomTools/CustomEditorView';
 import CustomPreview, { handlePreview } from './CustomTools/CustomPreview';
@@ -51,7 +51,6 @@ const CustomToolbar = () => {
       <CustomImageLink />
       <CustomCodeInline />
       <CustomCodeBlock />
-      <CustomLanguageCodeBlock />
       <CustomTable />
 
       <CustomEditorView />
@@ -77,10 +76,24 @@ export const modules = {
       blockquote: handleBlockQuote,
       fold: handleFold,
       'first-letter-uppercase': handleFirstLetterUppercase,
+      uppercase: handleUppercase,
+      lowercase: handleLowercase,
+      contents: handleContents,
+      'unordered-list': handleUnOrderedList,
+      'ordered-list': handleOrderedList,
+      link: handleLink,
+      image: handleImageLink,
+      'code-inline': handleCodeInline,
+      'custom-code-block': handleCodeBlock,
+      table: handleTable,
     },
   },
   keyboard: {
     bindings: {
+      enter: {
+        key: 13,
+        handler: handleEnter,
+      },
       bold: {
         key: 'B',
         shortKey: true,
