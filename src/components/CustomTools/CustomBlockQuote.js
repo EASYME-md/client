@@ -8,8 +8,10 @@ const CustomBlockQuote = () => {
 
 export function handleBlockQuote() {
   const cursorPosition = this.quill.getSelection()?.index;
+  const offset = this.quill.selection.getRange()[1].start.offset;
+  const startingPosition = cursorPosition - offset;
 
-  this.quill.insertText(cursorPosition, '>');
+  this.quill.insertText(startingPosition, '>');
 };
 
 export default CustomBlockQuote;
