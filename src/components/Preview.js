@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const Preview = () => {
-  const text = useSelector((state) => state.text.value);
+  const text = useSelector((state) => state.contents.text);
 
   return (
     <MarkdownPreview

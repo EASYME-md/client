@@ -3,14 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import WELCOME_MESSAGE from '../constants/welcomeMessage';
 
 export const slice = createSlice({
-  name: 'text',
+  name: 'contents',
   initialState: {
-    value: WELCOME_MESSAGE,
+    text: WELCOME_MESSAGE,
+    linkId: '',
   },
   reducers: {
     inputText: (state, action) => {
-      state.value = action.payload;
-    }
+      state.text = action.payload;
+    },
   }
 });
 
