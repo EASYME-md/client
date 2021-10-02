@@ -1,12 +1,33 @@
 import React, { useEffect } from 'react';
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { AiOutlineLink } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
 
 const SharingModal = ({ updateModal }) => {
+  const { url } = useRouteMatch();
+  const text = useSelector((state) => state.contents.text);
+
+  const saveContents = async () => {
+    const linkId = url.slice(1);
+
+    try {
+      await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/${linkId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ linkId, text }),
+      });
+
+    } catch (err) {
+      return err.message;
+    }
+  };
+
   useEffect(() => {
-    console.log('렌더링');
+    saveContents();
   }, []);
 
   return (
@@ -17,7 +38,7 @@ const SharingModal = ({ updateModal }) => {
           <AiOutlineLink fontSize={28} color='#ffffff' />
         </IconWrapper>
         <InputWrapper>
-          <input type='text' value={'http://localhost:3000/'} readOnly />
+          <input type='text' value={'http://mock/'} readOnly />
           <button onClick={() => console.log('복사기능')}>복사</button>
         </InputWrapper>
       </ModalWindow>

@@ -12,9 +12,7 @@ const SharingButton = () => {
   return (
     <>
       {isShowingModal && <SharingModal updateModal={setIsShowingModal} />}
-      <button onClick={handleButton}>
-        공유하기
-      </button>
+      <button onClick={handleButton}>공유하기</button>
     </>
   );
 };
