@@ -4,23 +4,13 @@ import { css } from '@emotion/react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
-import { inputText, load } from '../features/contentsSlice';
+import { inputText } from '../features/contentsSlice';
 import CustomToolbar, { modules, formats } from './CustomToolbar';
 
 const Editor = () => {
   const dispatch = useDispatch();
-  const { linkId } = useParams();
-  const { isLoading, text, error } = useSelector((state) => state.contents);
-
-  useEffect(() => {
-    dispatch(load(linkId));
-  }, []);
-
-  if (error) {
-    return <div>에러...</div>;
-  }
+  const { text } = useSelector((state) => state.contents);
 
   const onChangeText = (content, delta, source, editor) => {
     dispatch(inputText(editor.getText(content)));
@@ -29,18 +19,14 @@ const Editor = () => {
   return (
     <>
       <CustomToolbar />
-      {isLoading
-        ? <div>로딩중</div>
-        : <>
-          <ReactQuill
-            css={editor}
-            theme="snow"
-            defaultValue={text}
-            onChange={onChangeText}
-            modules={modules}
-            formats={formats}
-          />
-        </>}
+      <ReactQuill
+        css={editor}
+        theme="snow"
+        defaultValue={text}
+        onChange={onChangeText}
+        modules={modules}
+        formats={formats}
+      />
     </>
   );
 };
