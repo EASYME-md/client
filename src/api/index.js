@@ -1,10 +1,12 @@
+const SERVER_PORT = process.env.REACT_APP_SERVER_PORT;
+
 export const fetchContents = async (linkId) => {
   try {
     if (!linkId) {
       return;
     }
 
-    const response = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/${linkId}`, {
+    const response = await fetch(`http://localhost:${SERVER_PORT}/${linkId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,11 +29,9 @@ export const fetchContents = async (linkId) => {
   }
 };
 
-export const saveContents = async (url, text) => {
-  const linkId = url.slice(1);
-
+export const saveContents = async (linkId, text) => {
   try {
-    await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/${linkId}`, {
+    await fetch(`http://localhost:${SERVER_PORT}/${linkId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { AiOutlineLink } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
@@ -7,31 +7,39 @@ import { useRouteMatch } from 'react-router-dom';
 import { saveContents } from '../api';
 
 const SharingModal = ({ updateModal }) => {
-  const { url } = useRouteMatch();
+  const CLIENT_PORT = process.env.REACT_APP_CLIENT_PORT;
+  const linkValue = useRef();
   const { text } = useSelector((state) => state.contents);
+  const { url } = useRouteMatch();
+  const linkId = url.slice(1);
 
   useEffect(() => {
-    saveContents(url, text);
+    saveContents(linkId, text);
   }, []);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(linkValue.current.defaultValue);
+  };
 
   return (
     <>
       <ModalWrapper onClick={() => updateModal(false)} />
       <ModalWindow>
-        <IconWrapper onClick={() => console.log('복사기능')} >
+        <IconWrapper onClick={handleCopy} >
           <AiOutlineLink fontSize={28} color='#ffffff' />
         </IconWrapper>
         <InputWrapper>
-          <input type='text' value={'http://mock/'} readOnly />
-          <button onClick={() => console.log('복사기능')}>복사</button>
+          <input type='text' value={`http://localhost:${CLIENT_PORT}/${linkId}`} ref={linkValue} readOnly />
+          <button onClick={handleCopy}>복사</button>
         </InputWrapper>
       </ModalWindow>
     </>
-  )
-}
+  );
+};
 
 const ModalWrapper = styled.div`
-  position: absolute;
+  position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
@@ -48,7 +56,7 @@ const ModalWindow = styled.div`
   padding: 40px;
   text-align: center;
   transform: translateX(-50%) translateY(-50%);
-  z-index: 2;
+  z-index: 200;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
