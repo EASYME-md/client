@@ -10,9 +10,11 @@ const CustomHorizontalRule = () => {
 };
 
 export function handleHorizontalRule() {
-  const cursorPosition = this.quill.getSelection()?.index;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
 
-  this.quill.insertText(cursorPosition, '\n---\n');
+    this.quill.insertText(cursorPosition, '\n---\n');
+  }
 };
 
 export default CustomHorizontalRule;

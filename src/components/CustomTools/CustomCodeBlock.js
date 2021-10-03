@@ -10,11 +10,13 @@ const CustomCodeBlock = () => {
 };
 
 export function handleCodeBlock() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange.length;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange.length;
 
-  this.quill.insertText(cursorPosition, '```\n');
-  this.quill.insertText(cursorPosition + draggedLength + 5, '```\n');
+    this.quill.insertText(cursorPosition, '```\n');
+    this.quill.insertText(cursorPosition + draggedLength + 5, '```\n');
+  }
 };
 
 export default CustomCodeBlock;

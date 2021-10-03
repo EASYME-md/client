@@ -10,15 +10,22 @@ const CustomFirstLetterUppercase = () => {
 };
 
 export function handleFirstLetterUppercase() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange?.length;
-  const letters = this.quill.getText(cursorPosition, draggedLength);
-  const firstLetter = letters[0].toUpperCase();
-  const restLetters = letters.slice(1);
-  const result = firstLetter + restLetters;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange.length;
+    const letters = this.quill.getText(cursorPosition, draggedLength);
 
-  this.quill.deleteText(cursorPosition, draggedLength);
-  this.quill.insertText(cursorPosition, result);
+    if (!letters) {
+      return;
+    }
+
+    const firstLetter = letters[0].toUpperCase();
+    const restLetters = letters.slice(1).toLowerCase();
+    const result = firstLetter + restLetters;
+
+    this.quill.deleteText(cursorPosition, draggedLength);
+    this.quill.insertText(cursorPosition, result);
+  }
 };
 
 export default CustomFirstLetterUppercase;
