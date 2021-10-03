@@ -16,11 +16,13 @@ export function handleUnderline(range) {
     return;
   }
 
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange.length;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange.length;
 
-  this.quill.insertText(cursorPosition, '<u>');
-  this.quill.insertText(cursorPosition + draggedLength + 3, '</u>');
+    this.quill.insertText(cursorPosition, '<u>');
+    this.quill.insertText(cursorPosition + draggedLength + 3, '</u>');
+  }
 };
 
 export default CustomUnderline;

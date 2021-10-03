@@ -13,11 +13,13 @@ export function handleBold(range) {
     return;
   }
 
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange.length;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.getSelection().length;
 
-  this.quill.insertText(cursorPosition, '**');
-  this.quill.insertText(cursorPosition + draggedLength + 2, '**');
+    this.quill.insertText(cursorPosition, '**');
+    this.quill.insertText(cursorPosition + draggedLength + 2, '**');
+  }
 };
 
 export default CustomBold;

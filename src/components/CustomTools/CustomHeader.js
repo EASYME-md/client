@@ -14,19 +14,21 @@ const CustomHeader = () => {
 };
 
 export function handleHeader(content) {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const offset = this.quill.selection.getRange()[1].start.offset;
-  const startingPosition = cursorPosition - offset;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const offset = this.quill.selection.getRange()[1].start.offset;
+    const startingPosition = cursorPosition - offset;
 
-  let header = '';
+    let header = '';
 
-  for (let i = 0; i < content; i++) {
-    header += '#';
+    for (let i = 0; i < content; i++) {
+      header += '#';
+    }
+
+    const result = header + ' ';
+
+    this.quill.insertText(startingPosition, result);
   }
-
-  const result = header + ' ';
-
-  this.quill.insertText(startingPosition, result);
 };
 
 export default CustomHeader;

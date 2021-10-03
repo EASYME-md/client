@@ -10,12 +10,14 @@ const CustomTable = () => {
 };
 
 export function handleTable() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange.length;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange.length;
 
-  this.quill.insertText(cursorPosition + draggedLength,
-    '\n| title1 | title2 | title3 |\n| --- | --- | --- |\n| 1 | 2 | 3 |\n| 4 | 5 | 6 |\n| 7 | 8 | 9 |'
-  );
+    this.quill.insertText(cursorPosition + draggedLength,
+      '\n| title1 | title2 | title3 |\n| --- | --- | --- |\n| 1 | 2 | 3 |\n| 4 | 5 | 6 |\n| 7 | 8 | 9 |'
+    );
+  }
 };
 
 export default CustomTable;

@@ -10,13 +10,15 @@ const CustomLowercase = () => {
 };
 
 export function handleLowercase() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange?.length;
-  const letters = this.quill.getText(cursorPosition, draggedLength);
-  const lowercase = letters.toLowerCase();
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange?.length;
+    const letters = this.quill.getText(cursorPosition, draggedLength);
+    const lowercase = letters.toLowerCase();
 
-  this.quill.deleteText(cursorPosition, draggedLength);
-  this.quill.insertText(cursorPosition, lowercase);
+    this.quill.deleteText(cursorPosition, draggedLength);
+    this.quill.insertText(cursorPosition, lowercase);
+  }
 };
 
 export default CustomLowercase;

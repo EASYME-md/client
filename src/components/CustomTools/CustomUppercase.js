@@ -10,13 +10,15 @@ const CustomUppercase = () => {
 };
 
 export function handleUppercase() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange?.length;
-  const letters = this.quill.getText(cursorPosition, draggedLength);
-  const uppercase = letters.toUpperCase();
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange?.length;
+    const letters = this.quill.getText(cursorPosition, draggedLength);
+    const uppercase = letters.toUpperCase();
 
-  this.quill.deleteText(cursorPosition, draggedLength);
-  this.quill.insertText(cursorPosition, uppercase);
+    this.quill.deleteText(cursorPosition, draggedLength);
+    this.quill.insertText(cursorPosition, uppercase);
+  }
 };
 
 export default CustomUppercase;

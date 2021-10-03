@@ -10,11 +10,13 @@ const CustomFold = () => {
 };
 
 export function handleFold() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const draggedLength = this.quill.selection.lastRange.length;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const draggedLength = this.quill.selection.lastRange.length;
 
-  this.quill.insertText(cursorPosition, '<details><summary>');
-  this.quill.insertText(cursorPosition + draggedLength + 18, '</summary>\n\n*Write here!*\n</details>');
+    this.quill.insertText(cursorPosition, '<details><summary>');
+    this.quill.insertText(cursorPosition + draggedLength + 18, '</summary>\n\n*Write here!*\n</details>');
+  }
 };
 
 export default CustomFold;

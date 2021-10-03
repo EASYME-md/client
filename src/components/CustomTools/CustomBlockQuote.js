@@ -7,11 +7,13 @@ const CustomBlockQuote = () => {
 };
 
 export function handleBlockQuote() {
-  const cursorPosition = this.quill.getSelection()?.index;
-  const offset = this.quill.selection.getRange()[1].start.offset;
-  const startingPosition = cursorPosition - offset;
+  if (this.quill.getSelection()) {
+    const cursorPosition = this.quill.getSelection().index;
+    const offset = this.quill.selection.getRange()[1].start.offset;
+    const startingPosition = cursorPosition - offset;
 
-  this.quill.insertText(startingPosition, '>');
+    this.quill.insertText(startingPosition, '>');
+  }
 };
 
 export default CustomBlockQuote;
