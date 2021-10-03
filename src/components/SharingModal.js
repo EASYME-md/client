@@ -4,30 +4,14 @@ import { AiOutlineLink } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
 
+import { saveContents } from '../api';
+
 const SharingModal = ({ updateModal }) => {
   const { url } = useRouteMatch();
-  const text = useSelector((state) => state.contents.text);
-
-  const saveContents = async () => {
-    const linkId = url.slice(1);
-
-    try {
-      await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/${linkId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({ linkId, text }),
-      });
-
-    } catch (err) {
-      return err.message;
-    }
-  };
+  const { text } = useSelector((state) => state.contents);
 
   useEffect(() => {
-    saveContents();
+    saveContents(url, text);
   }, []);
 
   return (

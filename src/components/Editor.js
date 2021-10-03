@@ -6,54 +6,41 @@ import 'react-quill/dist/quill.snow.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { inputText } from '../features/contentsSlice';
+import { inputText, load } from '../features/contentsSlice';
 import CustomToolbar, { modules, formats } from './CustomToolbar';
 
 const Editor = () => {
   const dispatch = useDispatch();
   const { linkId } = useParams();
-  const text = useSelector((state) => state.contents.text);
-
-  const fetchContents = async () => {
-    try {
-      const response = await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/${linkId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      });
-
-      const { message, text } = await response.json();
-
-      if (message === 'OK') {
-        dispatch(inputText(text));
-        return;
-      }
-    } catch (err) {
-      return err.message;
-    }
-  };
+  const { isLoading, text, error } = useSelector((state) => state.contents);
 
   useEffect(() => {
-    fetchContents();
+    dispatch(load(linkId));
   }, []);
+
+  if (error) {
+    return <div>에러...</div>;
+  }
 
   const onChangeText = (content, delta, source, editor) => {
     dispatch(inputText(editor.getText(content)));
-  }
+  };
 
   return (
     <>
       <CustomToolbar />
-      <ReactQuill
-        css={editor}
-        theme="snow"
-        defaultValue={text}
-        onChange={onChangeText}
-        modules={modules}
-        formats={formats}
-      />
+      {isLoading
+        ? <div>로딩중</div>
+        : <>
+          <ReactQuill
+            css={editor}
+            theme="snow"
+            defaultValue={text}
+            onChange={onChangeText}
+            modules={modules}
+            formats={formats}
+          />
+        </>}
     </>
   );
 };
