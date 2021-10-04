@@ -1,6 +1,6 @@
-import { call, put, takeLatest, delay } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { load, loadSuccess, loadFail } from './contentsSlice';
+import { load, loadSuccess, loadFail } from './slice';
 import { fetchContents } from '../api';
 
 function* handleContentsLoad(action) {

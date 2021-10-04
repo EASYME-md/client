@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { inputText } from '../features/contentsSlice';
+import { inputText } from '../features/slice';
 import CustomToolbar, { modules, formats } from './CustomToolbar';
 
 const Editor = () => {

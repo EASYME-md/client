@@ -11,12 +11,8 @@ const App = () => {
   return (
     <>
       <Switch>
-        <Route path={`/${linkId}`}>
-          <Home />
-        </Route>
-        <Route path='/:linkId'>
-          <Home />
-        </Route>
+        <Route path={`/${linkId}`} component={Home} />
+        <Route path='/:linkId' component={Home} />
       </Switch>
       <Route path='/' exact>
         <Redirect to={`/${linkId}`} />
