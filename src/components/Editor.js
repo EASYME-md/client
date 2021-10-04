@@ -22,10 +22,11 @@ const Editor = () => {
       <ReactQuill
         css={editor}
         theme="snow"
-        defaultValue={text}
+        defaultValue={`<xmp>${text}</xmp>`}
         onChange={onChangeText}
         modules={modules}
         formats={formats}
+        preserveWhitespace={true}
       />
     </>
   );
