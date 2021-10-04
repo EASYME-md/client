@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import logger from 'redux-logger';
 
-import contentsReducer, { contents } from '../features/contentsSlice';
+import contentsReducer, { contents } from '../features/slice';
 import { watchContents } from '../features/saga';
 
 export const rootReducer = combineReducers({

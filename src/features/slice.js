@@ -12,6 +12,9 @@ const reducers = {
   inputText: (state, action) => {
     state.text = action.payload;
   },
+  resetError: (state) => {
+    state.error = null;
+  },
   load: (state) => {
     state.isLoading = true;
   },
@@ -44,6 +47,6 @@ export const contentsSelector = {
 };
 
 export const contents = slice.name;
-export const { inputText, load, loadSuccess, loadFail } = slice.actions;
+export const { inputText, resetError, load, loadSuccess, loadFail } = slice.actions;
 
 export default slice.reducer;

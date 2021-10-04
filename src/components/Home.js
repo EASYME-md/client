@@ -6,7 +6,8 @@ import Title from './Title';
 import Editor from './Editor';
 import Preview from './Preview';
 import SharingButton from './SharingButton';
-import { load } from '../features/contentsSlice';
+import NotFound from './NotFound';
+import { load, resetError } from '../features/slice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,12 @@ const Home = () => {
   const { isLoading, error } = useSelector((state) => state.contents);
 
   useEffect(() => {
+    dispatch(resetError());
     dispatch(load(linkId));
   }, []);
 
   if (error) {
-    return <div>에러</div>;
+    return <NotFound message={error} />;
   }
 
   return (

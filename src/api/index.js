@@ -17,15 +17,14 @@ export const fetchContents = async (linkId) => {
     const { message, text } = await response.json();
 
     if (message === 'NOT_FOUND') {
-      console.log('해당 페이지는 존재하지 않습니다.');
-      return;
+      throw new Error('Not Found');
     }
 
     if (message === 'OK') {
       return text;
     }
   } catch (err) {
-    return err.message;
+    throw err.message;
   }
 };
 
@@ -41,6 +40,6 @@ export const saveContents = async (linkId, text) => {
     });
 
   } catch (err) {
-    return err.message;
+    throw err.message;
   }
 };
