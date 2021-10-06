@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { AiOutlineLink } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { saveContents } from '../api';
 
@@ -35,6 +36,10 @@ const SharingModal = ({ updateModal }) => {
       </ModalWindow>
     </>
   );
+};
+
+SharingModal.propTypes = {
+  updateModal: PropTypes.func.isRequired,
 };
 
 const ModalWrapper = styled.div`

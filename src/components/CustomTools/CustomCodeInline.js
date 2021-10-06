@@ -1,22 +1,25 @@
 import React from 'react';
 import { FaCode } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
+import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 
 const CustomCodeInline = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = () => {
+    const resultValue = addTypeBeforeAndAfter(textArea, '`', '`');
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <button className='ql-code-inline' title='Code inline'>
+    <button className='ql-code-inline' title='Code inline' onClick={handleButton}>
       <FaCode />
     </button>
   );
-};
-
-export function handleCodeInline() {
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const draggedLength = this.quill.selection.lastRange.length;
-
-    this.quill.insertText(cursorPosition, '`');
-    this.quill.insertText(cursorPosition + draggedLength + 1, '`');
-  }
 };
 
 export default CustomCodeInline;

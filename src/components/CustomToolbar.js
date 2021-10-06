@@ -1,30 +1,29 @@
 import React from 'react';
 
-import handleEnter from '../utils/handleEnter';
-import CustomUndo, { handleUndo } from './CustomTools/CustomUndo';
-import CustomRedo, { handleRedo } from './CustomTools/CustomRedo';
-import CustomHeader, { handleHeader } from './CustomTools/CustomHeader';
-import CustomBold, { handleBold } from './CustomTools/CustomBold';
-import CustomItalic, { handleItalic } from './CustomTools/CustomItalic';
-import CustomStrikethrough, { handleStrikethrough } from './CustomTools/CustomStrikethrough';
-import CustomUnderline, { handleUnderline } from './CustomTools/CustomUnderline';
-import CustomHorizontalRule, { handleHorizontalRule } from './CustomTools/CustomHorizontalRule';
-import CustomBlockQuote, { handleBlockQuote } from './CustomTools/CustomBlockQuote';
-import CustomFold, { handleFold } from './CustomTools/CustomFold';
-import CustomFirstLetterUppercase, { handleFirstLetterUppercase } from './CustomTools/CustomFirstLetterUppercase';
-import CustomUppercase, { handleUppercase } from './CustomTools/CustomUppercase';
-import CustomLowercase, { handleLowercase } from './CustomTools/CustomLowercase';
-import CustomContents, { handleContents } from './CustomTools/CustomContents';
-import CustomUnOrderedList, { handleUnOrderedList } from './CustomTools/CustomUnOrderedList';
-import CustomOrderedList, { handleOrderedList } from './CustomTools/CustomOrderedList';
-import CustomLink, { handleLink } from './CustomTools/CustomLink';
-import CustomImageLink, { handleImageLink } from './CustomTools/CustomImageLink';
-import CustomCodeInline, { handleCodeInline } from './CustomTools/CustomCodeInline';
-import CustomCodeBlock, { handleCodeBlock } from './CustomTools/CustomCodeBlock';
-import CustomTable, { handleTable } from './CustomTools/CustomTable';
-import CustomEditorView, { handleEditorView } from './CustomTools/CustomEditorView';
-import CustomPreview, { handlePreview } from './CustomTools/CustomPreview';
-import CustomFullScreen, { handleFullScreen } from './CustomTools/CustomFullScreen';
+import CustomUndo from './CustomTools/CustomUndo';
+import CustomRedo from './CustomTools/CustomRedo';
+import CustomHeader from './CustomTools/CustomHeader';
+import CustomBold from './CustomTools/CustomBold';
+import CustomItalic from './CustomTools/CustomItalic';
+import CustomStrikethrough from './CustomTools/CustomStrikethrough';
+import CustomUnderline from './CustomTools/CustomUnderline';
+import CustomHorizontalRule from './CustomTools/CustomHorizontalRule';
+import CustomBlockQuote from './CustomTools/CustomBlockQuote';
+import CustomFold from './CustomTools/CustomFold';
+import CustomFirstLetterUppercase from './CustomTools/CustomFirstLetterUppercase';
+import CustomUppercase from './CustomTools/CustomUppercase';
+import CustomLowercase from './CustomTools/CustomLowercase';
+import CustomContents from './CustomTools/CustomContents';
+import CustomUnOrderedList from './CustomTools/CustomUnOrderedList';
+import CustomOrderedList from './CustomTools/CustomOrderedList';
+import CustomLink from './CustomTools/CustomLink';
+import CustomImageLink from './CustomTools/CustomImageLink';
+import CustomCodeInline from './CustomTools/CustomCodeInline';
+import CustomCodeBlock from './CustomTools/CustomCodeBlock';
+import CustomTable from './CustomTools/CustomTable';
+import CustomEditorView from './CustomTools/CustomEditorView';
+import CustomPreview from './CustomTools/CustomPreview';
+import CustomFullScreen from './CustomTools/CustomFullScreen';
 
 const CustomToolbar = () => {
   return (
@@ -56,70 +55,8 @@ const CustomToolbar = () => {
       <CustomEditorView />
       <CustomPreview />
       <CustomFullScreen />
-
     </div>
   );
 };
-
-export const modules = {
-  toolbar: {
-    container: '#toolbar',
-    handlers: {
-      redo: handleRedo,
-      undo: handleUndo,
-      header: handleHeader,
-      bold: handleBold,
-      italic: handleItalic,
-      strike: handleStrikethrough,
-      underline: handleUnderline,
-      'horizontal-rule': handleHorizontalRule,
-      blockquote: handleBlockQuote,
-      fold: handleFold,
-      'first-letter-uppercase': handleFirstLetterUppercase,
-      uppercase: handleUppercase,
-      lowercase: handleLowercase,
-      contents: handleContents,
-      'unordered-list': handleUnOrderedList,
-      'ordered-list': handleOrderedList,
-      link: handleLink,
-      image: handleImageLink,
-      'code-inline': handleCodeInline,
-      'custom-code-block': handleCodeBlock,
-      table: handleTable,
-    },
-  },
-  keyboard: {
-    bindings: {
-      enter: {
-        key: 13,
-        handler: handleEnter,
-      },
-      bold: {
-        key: 'B',
-        shortKey: true,
-        handler: handleBold,
-      },
-      italic: {
-        key: 'I',
-        shortKey: true,
-        handler: handleItalic,
-      },
-      strike: {
-        key: 'D',
-        shortKey: true,
-        handler: handleStrikethrough,
-      },
-      underline: {
-        key: 'U',
-        shortKey: true,
-        handler: handleUnderline,
-      }
-    },
-  },
-};
-
-export const formats = [
-  'header',
-];
 
 export default CustomToolbar;

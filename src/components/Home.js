@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
 import Title from './Title';
-import Editor from './Editor';
-import Preview from './Preview';
+import TextScreen from './TextScreen';
 import SharingButton from './SharingButton';
 import NotFound from './NotFound';
 import { load, resetError } from '../features/slice';
@@ -29,10 +28,7 @@ const Home = () => {
       <Title />
       {isLoading
         ? <div>로딩중</div>
-        : <>
-          <Editor />
-          <Preview />
-        </>
+        : <TextScreen />
       }
     </>
   );

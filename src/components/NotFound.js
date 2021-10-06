@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const NotFound = ({ message }) => {
   return (
@@ -13,6 +14,10 @@ const NotFound = ({ message }) => {
       <Button to="/">홈으로 돌아가기</Button>
     </Wrapper>
   );
+};
+
+NotFound.propTypes = {
+  message: PropTypes.string.isRequired,
 };
 
 const Wrapper = styled.div`

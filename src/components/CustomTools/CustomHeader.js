@@ -1,8 +1,30 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
+import addTypeCurrentColumn from '../../utils/addTypeCurrentColumn';
 
 const CustomHeader = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = (e) => {
+    const targetValue = e.target.value;
+    let header = '';
+
+    for (let i = 0; i < targetValue; i++) {
+      header += '#';
+    }
+
+    header += ' ';
+
+    const resultValue = addTypeCurrentColumn(textArea, header);
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <select className='ql-header'>
+    <select className='ql-header' onChange={handleButton}>
       <option value="1"># Heading</option>
       <option value="2">## Heading</option>
       <option value="3">### Heading</option>
@@ -11,24 +33,6 @@ const CustomHeader = () => {
       <option value="6">###### Heading</option>
     </select>
   );
-};
-
-export function handleHeader(content) {
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const offset = this.quill.selection.getRange()[1].start.offset;
-    const startingPosition = cursorPosition - offset;
-
-    let header = '';
-
-    for (let i = 0; i < content; i++) {
-      header += '#';
-    }
-
-    const result = header + ' ';
-
-    this.quill.insertText(startingPosition, result);
-  }
 };
 
 export default CustomHeader;

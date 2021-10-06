@@ -1,25 +1,25 @@
 import React from 'react';
+import { FaBold } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
+import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 
 const CustomBold = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = () => {
+    const resultValue = addTypeBeforeAndAfter(textArea, '**');
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <button className='ql-bold' title='Bold' />
+    <button className='ql-bold' title='Bold' onClick={handleButton}>
+      <FaBold />
+    </button>
   );
-};
-
-export function handleBold(range) {
-  if (range?.length) {
-    this.quill.insertText(range.index, '**');
-    this.quill.insertText(range.index + range.length + 2, '**');
-    return;
-  }
-
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const draggedLength = this.quill.getSelection().length;
-
-    this.quill.insertText(cursorPosition, '**');
-    this.quill.insertText(cursorPosition + draggedLength + 2, '**');
-  }
 };
 
 export default CustomBold;

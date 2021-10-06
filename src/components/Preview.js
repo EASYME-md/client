@@ -19,10 +19,9 @@ const preview = css`
   position: absolute;
   overflow: scroll;
   right: 0px;
-  margin: 20px;
   padding: 20px;
   border: 1px solid #cccccc;
-  width: 40%;
+  width: 50%;
   height: 70vh;
 `;
 

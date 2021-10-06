@@ -1,22 +1,25 @@
 import React from 'react';
 import { GoFileCode } from 'react-icons/go';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
+import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 
 const CustomCodeBlock = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = () => {
+    const resultValue = addTypeBeforeAndAfter(textArea, '\n```\n', '\n```\n');
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <button className='ql-custom-code-block' title='Code block'>
+    <button className='ql-custom-code-block' title='Code block' onClick={handleButton}>
       <GoFileCode />
     </button>
   );
-};
-
-export function handleCodeBlock() {
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const draggedLength = this.quill.selection.lastRange.length;
-
-    this.quill.insertText(cursorPosition, '```\n');
-    this.quill.insertText(cursorPosition + draggedLength + 5, '```\n');
-  }
 };
 
 export default CustomCodeBlock;
