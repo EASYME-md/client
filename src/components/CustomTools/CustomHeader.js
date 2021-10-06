@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addText } from '../../features/slice';
-import addTypeCurrentColumn from '../../utils/addTypeCurrentColumn';
+import addTypeCurrentRow from '../../utils/addTypeCurrentRow';
 
 const CustomHeader = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const CustomHeader = () => {
 
     header += ' ';
 
-    const resultValue = addTypeCurrentColumn(textArea, header);
+    const resultValue = addTypeCurrentRow(textArea, header);
 
     dispatch(addText(resultValue));
   };
