@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoText } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
+import { replace } from 'text-field-edit';
 
 import { addText } from '../../features/slice';
 
@@ -18,10 +19,14 @@ const CustomFirstLetterUppercase = () => {
     const draggedText = textArea.value.substring(startPosition, endPosition);
     const firstLetter = draggedText.substring(0, 1).toUpperCase();
     const restLetters = draggedText.substring(1).toLowerCase();
+    const result = startText + firstLetter + restLetters + endText;
 
-    const resultValue = startText + firstLetter + restLetters + endText;
+    replace(textArea, textArea.value, result);
+    textArea.focus();
+    textArea.selectionStart = startPosition + draggedLength;
+    textArea.selectionEnd = textArea.selectionStart;
 
-    dispatch(addText(resultValue));
+    dispatch(addText(result));
   };
 
   return (

@@ -1,3 +1,5 @@
+import { replace } from 'text-field-edit';
+
 const addTypeCurrentColumn = (textArea, type) => {
   const startPosition = textArea.selectionStart;
   const currentColumn = textArea.value.substring(0, startPosition).split('\n');
@@ -5,10 +7,12 @@ const addTypeCurrentColumn = (textArea, type) => {
 
   const startText = textArea.value.substring(0, startPosition - currentColumnLength);
   const endText = type + textArea.value.substring(startPosition - currentColumnLength);
+  const result = startText + endText;
 
-  textArea.value = startText + endText;
+  replace(textArea, textArea.value, result);
   textArea.focus();
-  textArea.selectionEnd = startPosition - currentColumnLength + type.length;
+  textArea.selectionStart = startPosition - currentColumnLength + type.length;
+  textArea.selectionEnd = textArea.selectionStart;
 
   return textArea.value;
 };
