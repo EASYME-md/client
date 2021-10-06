@@ -1,25 +1,25 @@
 import React from 'react';
+import { FaStrikethrough } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
+import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 
 const CustomStrikethrough = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = () => {
+    const resultValue = addTypeBeforeAndAfter(textArea, '<s>', '</s>');
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <button className='ql-strike' title='Strikethrough' />
+    <button className='ql-strike' title='Strikethrough' onClick={handleButton}>
+      <FaStrikethrough />
+    </button>
   );
-};
-
-export function handleStrikethrough(range) {
-  if (range?.length) {
-    this.quill.insertText(range.index, '<s>');
-    this.quill.insertText(range.index + range.length + 3, '</s>');
-    return;
-  }
-
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const draggedLength = this.quill.selection.lastRange.length;
-
-    this.quill.insertText(cursorPosition, '<s>');
-    this.quill.insertText(cursorPosition + draggedLength + 3, '</s>');
-  }
 };
 
 export default CustomStrikethrough;

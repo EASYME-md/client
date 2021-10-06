@@ -4,13 +4,17 @@ import WELCOME_MESSAGE from '../constants/welcomeMessage';
 
 const initialState = {
   isLoading: false,
-  text: WELCOME_MESSAGE,
+  text: '',
+  textArea: null,
   error: null,
 };
 
 const reducers = {
-  inputText: (state, action) => {
+  addText: (state, action) => {
     state.text = action.payload;
+  },
+  addTextArea: (state, action) => {
+    state.textArea = action.payload;
   },
   resetError: (state) => {
     state.error = null;
@@ -47,6 +51,6 @@ export const contentsSelector = {
 };
 
 export const contents = slice.name;
-export const { inputText, resetError, load, loadSuccess, loadFail } = slice.actions;
+export const { addText, addTextArea, resetError, load, loadSuccess, loadFail } = slice.actions;
 
 export default slice.reducer;

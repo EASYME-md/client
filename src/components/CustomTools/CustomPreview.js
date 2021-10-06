@@ -4,7 +4,7 @@ import { BsFillEyeSlashFill } from 'react-icons/bs';
 const CustomPreview = () => {
   return (
     <button className='ql-preview'>
-      <BsFillEyeSlashFill fontSize={16} />
+      <BsFillEyeSlashFill />
     </button>
   );
 };

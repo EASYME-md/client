@@ -1,24 +1,32 @@
 import React from 'react';
 import { FaFont } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
 
 const CustomUppercase = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = () => {
+    const startPosition = textArea.selectionStart;
+    const endPosition = textArea.selectionEnd;
+    const draggedLength = endPosition - startPosition;
+
+    const startText = textArea.value.substring(startPosition, 0);
+    const endText = textArea.value.substring(startPosition + draggedLength);
+    const draggedText = textArea.value.substring(startPosition, endPosition).toUpperCase();
+
+    const resultValue = startText + draggedText + endText;
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <button className='ql-uppercase' title='Uppercase'>
+    <button className='ql-uppercase' title='Uppercase' onClick={handleButton}>
       <FaFont />
     </button>
   );
-};
-
-export function handleUppercase() {
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const draggedLength = this.quill.selection.lastRange?.length;
-    const letters = this.quill.getText(cursorPosition, draggedLength);
-    const uppercase = letters.toUpperCase();
-
-    this.quill.deleteText(cursorPosition, draggedLength);
-    this.quill.insertText(cursorPosition, uppercase);
-  }
 };
 
 export default CustomUppercase;

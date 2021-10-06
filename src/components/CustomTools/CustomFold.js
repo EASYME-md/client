@@ -1,22 +1,25 @@
 import React from 'react';
 import { AiOutlineCaretRight } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addText } from '../../features/slice';
+import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 
 const CustomFold = () => {
+  const dispatch = useDispatch();
+  const { textArea } = useSelector((state) => state.contents);
+
+  const handleButton = () => {
+    const resultValue = addTypeBeforeAndAfter(textArea, '\n<details><summary>', '\n</summary>\n\n*Write here!*\n</details>\n');
+
+    dispatch(addText(resultValue));
+  };
+
   return (
-    <button className='ql-fold' title='Fold'>
+    <button className='ql-fold' title='Fold' onClick={handleButton}>
       <AiOutlineCaretRight />
     </button>
   );
-};
-
-export function handleFold() {
-  if (this.quill.getSelection()) {
-    const cursorPosition = this.quill.getSelection().index;
-    const draggedLength = this.quill.selection.lastRange.length;
-
-    this.quill.insertText(cursorPosition, '<details><summary>');
-    this.quill.insertText(cursorPosition + draggedLength + 18, '</summary>\n\n*Write here!*\n</details>');
-  }
 };
 
 export default CustomFold;

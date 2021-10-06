@@ -4,7 +4,7 @@ import { VscNote } from 'react-icons/vsc';
 const CustomEditorView = () => {
   return (
     <button className='ql-editor-view'>
-      <VscNote fontSize={18} />
+      <VscNote />
     </button>
   );
 };
