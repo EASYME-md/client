@@ -12021,6 +12021,11 @@
     "glob" "^7.1.4"
     "minimatch" "^3.0.4"
 
+"text-field-edit@^3.1.1":
+  "integrity" "sha512-Ho+H/NHZhW0qK/CXQknrMOhHcNS4Jzs1NjhkZNi+nYa1+MS66Yc04qJeooGkHUzWdQDtNES5IYKxIbYIqmylLw=="
+  "resolved" "https://registry.npmjs.org/text-field-edit/-/text-field-edit-3.1.1.tgz"
+  "version" "3.1.1"
+
 "text-table@^0.2.0", "text-table@0.2.0":
   "integrity" "sha1-f17oI66AUgfACvLfSoTsP8+lcLQ="
   "resolved" "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"

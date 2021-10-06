@@ -1,3 +1,5 @@
+import { replace } from 'text-field-edit';
+
 const addTypeBeforeAndAfter = (textArea, typeA, typeB = typeA) => {
   const startPosition = textArea.selectionStart;
   const endPosition = textArea.selectionEnd;
@@ -6,10 +8,12 @@ const addTypeBeforeAndAfter = (textArea, typeA, typeB = typeA) => {
   const startText = textArea.value.substring(startPosition, 0);
   const draggedText = typeA + textArea.value.substring(startPosition, endPosition) + typeB;
   const endText = textArea.value.substring(startPosition + draggedLength);
+  const result = startText + draggedText + endText;
 
-  textArea.value = startText + draggedText + endText;
+  replace(textArea, textArea.value, result);
   textArea.focus();
-  textArea.selectionEnd = startPosition + draggedLength + typeA.length + typeB.length;
+  textArea.selectionStart = startPosition + draggedLength + typeA.length + typeB.length;
+  textArea.selectionEnd = textArea.selectionStart;
 
   return textArea.value;
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaAmilia } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import { replace } from 'text-field-edit';
 
 import { addText } from '../../features/slice';
 
@@ -16,10 +17,14 @@ const CustomLowercase = () => {
     const startText = textArea.value.substring(startPosition, 0);
     const endText = textArea.value.substring(startPosition + draggedLength);
     const draggedText = textArea.value.substring(startPosition, endPosition).toLowerCase();
+    const result = startText + draggedText + endText;
 
-    textArea.value = startText + draggedText + endText;
+    replace(textArea, textArea.value, result);
+    textArea.focus();
+    textArea.selectionStart = startPosition + draggedLength;
+    textArea.selectionEnd = textArea.selectionStart;
 
-    dispatch(addText(textArea.value));
+    dispatch(addText(result));
   };
 
   return (

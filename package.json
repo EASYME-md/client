@@ -20,7 +20,8 @@
     "react-scripts": "4.0.3",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "text-field-edit": "^3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
