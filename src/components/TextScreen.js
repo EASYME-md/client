@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import CustomToolbar from './CustomToolbar';
-import Preview from './Preview';
+import MarkdownView from './MarkdownView';
 import Editor from './Editor';
 
 const TextScreen = () => {
@@ -13,7 +13,7 @@ const TextScreen = () => {
       </header>
       <main>
         <Editor />
-        <Preview />
+        <MarkdownView />
       </main>
     </ScreenWrapper>
   );

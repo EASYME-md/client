@@ -22,7 +22,7 @@ import CustomCodeInline from './CustomTools/CustomCodeInline';
 import CustomCodeBlock from './CustomTools/CustomCodeBlock';
 import CustomTable from './CustomTools/CustomTable';
 import CustomEditorView from './CustomTools/CustomEditorView';
-import CustomPreview from './CustomTools/CustomPreview';
+import CustomMarkdownView from './CustomTools/CustomMarkdownView';
 import CustomFullScreen from './CustomTools/CustomFullScreen';
 
 const CustomToolbar = () => {
@@ -53,7 +53,7 @@ const CustomToolbar = () => {
       <CustomTable />
 
       <CustomEditorView />
-      <CustomPreview />
+      <CustomMarkdownView />
       <CustomFullScreen />
     </div>
   );
