@@ -1,11 +1,12 @@
 import React from 'react';
-import { VscNote } from 'react-icons/vsc';
-import { useDispatch } from 'react-redux';
+import { MdSpeakerNotes, MdSpeakerNotesOff } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { toggleEditor } from '../../features/slice';
 
 const CustomEditorView = () => {
   const dispatch = useDispatch();
+  const { fullEditor } = useSelector((state) => state.contents);
 
   const handleButton = () => {
     dispatch(toggleEditor());
@@ -13,7 +14,9 @@ const CustomEditorView = () => {
 
   return (
     <button className='ql-editor-view' title='Only editor preview' onClick={handleButton}>
-      <VscNote />
+      {fullEditor
+        ? <MdSpeakerNotesOff />
+        : <MdSpeakerNotes />}
     </button>
   );
 };
