@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { nanoid } from 'nanoid';
-import './App.css';
 
 import Home from './components/Home';
 
