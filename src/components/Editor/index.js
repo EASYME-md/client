@@ -1,16 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addText, addTextArea } from '../features/slice';
-import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
-import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
+import './Editor.css';
+import { addText, addTextArea } from '../../features/slice';
+import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
+import addTypeCurrentPosition from '../../utils/addTypeCurrentPosition';
 
 const Editor = () => {
   const inputText = useRef();
   const dispatch = useDispatch();
-  const { text } = useSelector((state) => state.contents);
+  const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
 
   useEffect(() => {
     dispatch(addTextArea(inputText.current));
@@ -63,9 +65,21 @@ const Editor = () => {
     }
   };
 
+  const handleClassName = () => {
+    if (fullEditor) {
+      return 'full-editor';
+    }
+
+    if (fullMarkdown) {
+      return 'none-editor';
+    }
+
+    return '';
+  };
+
   return (
-    <textarea
-      css={editor}
+    <TextArea
+      className={handleClassName()}
       value={text}
       onChange={onChangeText}
       onKeyDown={handleKeyDown}
@@ -74,12 +88,12 @@ const Editor = () => {
   );
 };
 
-const editor = css`
-  position: absolute;
+const TextArea = styled.textarea`
   resize: none;
+  box-sizing: border-box;
   padding: 20px;
-  width: 40%;
-  height: 70vh;
+  border: 1px solid #cccccc;
+  width: 50%;
 `;
 
 export default Editor;

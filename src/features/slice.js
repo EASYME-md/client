@@ -6,6 +6,8 @@ const initialState = {
   isLoading: false,
   text: '',
   textArea: null,
+  fullEditor: false,
+  fullMarkdown: false,
   error: null,
 };
 
@@ -18,6 +20,12 @@ const reducers = {
   },
   resetError: (state) => {
     state.error = null;
+  },
+  toggleEditor: (state) => {
+    state.fullEditor = !state.fullEditor;
+  },
+  toggleMarkdown: (state) => {
+    state.fullMarkdown = !state.fullMarkdown;
   },
   load: (state) => {
     state.isLoading = true;
@@ -51,6 +59,6 @@ export const contentsSelector = {
 };
 
 export const contents = slice.name;
-export const { addText, addTextArea, resetError, load, loadSuccess, loadFail } = slice.actions;
+export const { addText, addTextArea, resetError, toggleEditor, toggleMarkdown, load, loadSuccess, loadFail } = slice.actions;
 
 export default slice.reducer;
