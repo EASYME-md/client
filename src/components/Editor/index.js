@@ -90,8 +90,13 @@ const TextArea = styled.textarea`
   resize: none;
   box-sizing: border-box;
   padding: 20px;
-  border: 1px solid #cccccc;
+  border: none;
+  border-right: 1px solid #dddddd;
   width: 50%;
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export default Editor;

@@ -1,5 +1,5 @@
 .full-screen {
-  position: fixed;
+  position: fixed !important;
   z-index: 300;
   top: 0;
   left: 0;

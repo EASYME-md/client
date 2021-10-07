@@ -24,12 +24,16 @@ const TextScreen = () => {
 };
 
 const ScreenWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
   margin: 0 auto;
-  border: 1px solid red;
   border-radius: 15px;
   width: 90%;
   height: 70vh;
   background: white;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   header {
     padding: 5px;
