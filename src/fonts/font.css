@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Rubik';
+  font-display: fallback;
+
+  src: url('./Rubik-ExtraBold.ttf') format('truetype'), url('././Rubik-ExtraBold.woff')
+      format('woff'), url('././Rubik-ExtraBold.eot?iefix') format('embedded-opentype');
+
+  font-style: normal;
+}

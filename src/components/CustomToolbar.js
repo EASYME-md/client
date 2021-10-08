@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from '@emotion/styled';
 
 import CustomUndo from './CustomTools/CustomUndo';
 import CustomRedo from './CustomTools/CustomRedo';
@@ -24,14 +25,16 @@ import CustomTable from './CustomTools/CustomTable';
 import CustomEditorView from './CustomTools/CustomEditorView';
 import CustomMarkdownView from './CustomTools/CustomMarkdownView';
 import CustomFullScreen from './CustomTools/CustomFullScreen';
+import SectionLine from './shared/SectionLine';
 
 const CustomToolbar = () => {
   return (
-    <div id="toolbar">
+    <ToolbarWrapper>
       <CustomRedo />
       <CustomUndo />
-
+      <SectionLine />
       <CustomHeader />
+      <SectionLine />
       <CustomBold />
       <CustomItalic />
       <CustomStrikethrough />
@@ -39,10 +42,11 @@ const CustomToolbar = () => {
       <CustomHorizontalRule />
       <CustomBlockQuote />
       <CustomFold />
+      <SectionLine />
       <CustomFirstLetterUppercase />
       <CustomUppercase />
       <CustomLowercase />
-
+      <SectionLine />
       <CustomContents />
       <CustomUnOrderedList />
       <CustomOrderedList />
@@ -51,12 +55,43 @@ const CustomToolbar = () => {
       <CustomCodeInline />
       <CustomCodeBlock />
       <CustomTable />
-
+      <SectionLine />
       <CustomEditorView />
       <CustomMarkdownView />
       <CustomFullScreen />
-    </div>
+    </ToolbarWrapper>
   );
 };
+
+const ToolbarWrapper = styled.div`
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 5px;
+
+  button {
+    cursor: pointer;
+    vertical-align: middle;
+    border: none;
+    background: none;
+  }
+
+  svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  select {
+    font-weight: 600;
+    font-family: inherit;
+    padding: 3px;
+    width: 120px;
+    border: 1px solid #dddddd;
+
+    :focus {
+      outline: none;
+    }
+  }
+`;
 
 export default CustomToolbar;
