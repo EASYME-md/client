@@ -24,7 +24,6 @@ const Home = () => {
 
   return (
     <>
-      <SharingButton />
       <Title />
       {isLoading
         ? <div>로딩중</div>

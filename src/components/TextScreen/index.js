@@ -6,29 +6,36 @@ import './TextScreen.css';
 import CustomToolbar from '../CustomToolbar';
 import MarkdownView from '../MarkdownView';
 import Editor from '../Editor';
+import SharingButton from '../SharingButton';
 
 const TextScreen = () => {
   const { fullScreen } = useSelector((state) => state.contents);
 
   return (
-    <ScreenWrapper className={fullScreen ? 'full-screen' : ''}>
-      <header>
-        <CustomToolbar />
-      </header>
-      <main>
-        <Editor />
-        <MarkdownView />
-      </main>
-    </ScreenWrapper>
+    <Wrapper>
+      <SharingButton />
+      <ScreenWrapper className={fullScreen ? 'full-screen' : ''}>
+        <header>
+          <CustomToolbar />
+        </header>
+        <main>
+          <Editor />
+          <MarkdownView />
+        </main>
+      </ScreenWrapper>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`;
 
 const ScreenWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
   border-radius: 15px;
-  width: 90%;
   height: 70vh;
   background: white;
   border: 1px solid rgba(255, 255, 255, 0.18);

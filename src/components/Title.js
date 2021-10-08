@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import character from '../assets/easyme.png'
+import character from '../assets/easyme.png';
 
 const Title = () => {
   return (
