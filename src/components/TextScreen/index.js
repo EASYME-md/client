@@ -6,14 +6,14 @@ import './TextScreen.css';
 import CustomToolbar from '../CustomToolbar';
 import MarkdownView from '../MarkdownView';
 import Editor from '../Editor';
-import SharingButton from '../SharingButton';
+import SaveBox from '../shared/SaveBox';
 
 const TextScreen = () => {
-  const { fullScreen } = useSelector((state) => state.contents);
+  const { fullScreen, isSaved } = useSelector((state) => state.contents);
 
   return (
     <Wrapper>
-      <SharingButton />
+      {isSaved && <SaveBox />}
       <ScreenWrapper className={fullScreen ? 'full-screen' : ''}>
         <header>
           <CustomToolbar />

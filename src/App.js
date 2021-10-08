@@ -1,20 +1,17 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { nanoid } from 'nanoid';
 
 import Home from './components/Home';
 
 const App = () => {
-  const linkId = nanoid(10);
-
   return (
     <>
       <Switch>
-        <Route path={`/${linkId}`} component={Home} />
-        <Route path='/:linkId' component={Home} />
+        <Route path='/d' component={Home} />
+        <Route path='/d/:linkId' component={Home} />
       </Switch>
       <Route path='/' exact>
-        <Redirect to={`/${linkId}`} />
+        <Redirect to='/d' />
       </Route>
     </>
   );

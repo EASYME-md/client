@@ -1,15 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouteMatch, useLocation } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 
 import './Editor.css';
-import { addText, addTextArea } from '../../features/slice';
+import { addLinkId, addText, addTextArea, saveText } from '../../features/slice';
 import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 import addTypeCurrentPosition from '../../utils/addTypeCurrentPosition';
+import { saveContents } from '../../api';
 
 const Editor = () => {
   const inputText = useRef();
   const dispatch = useDispatch();
+  const { path } = useRouteMatch();
+  const { pathname } = useLocation();
   const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
 
   useEffect(() => {
@@ -34,6 +39,36 @@ const Editor = () => {
       const resultValue = addTypeCurrentPosition(inputText.current, '  ');
 
       dispatch(addText(resultValue));
+    }
+
+    if (e.code === 'KeyS' && isMetaKey) {
+      e.preventDefault();
+
+      let link = pathname.replace('/d/', '');
+
+      if (link === '/d') {
+        link = '';
+      }
+
+      if (!link) {
+        const id = nanoid(10);
+
+        dispatch(addLinkId(id));
+        dispatch(saveText());
+        saveContents(id, text);
+        setTimeout(() => {
+          window.location.href = `${path}/${id}`;
+        }, 700);
+      }
+
+      if (link) {
+        dispatch(addLinkId(link));
+        dispatch(saveText());
+        saveContents(link, text);
+        setTimeout(() => {
+          window.location.href = `${path}/${link}`;
+        }, 700);
+      }
     }
 
     if (e.code === 'KeyB' && isMetaKey) {

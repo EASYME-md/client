@@ -42,7 +42,6 @@ const title = css`
   color: white;
   font-size: 4rem;
   text-shadow: 4px 6px 10px rgba(33, 40, 56, 0.2);
-  z-index: 200;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;

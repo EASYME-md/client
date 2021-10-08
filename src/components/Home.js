@@ -1,21 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 import Title from './Title';
 import TextScreen from './TextScreen';
-import SharingButton from './SharingButton';
 import NotFound from './NotFound';
 import { load, resetError } from '../features/slice';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { linkId } = useParams();
+  const { pathname } = useLocation();
   const { isLoading, error } = useSelector((state) => state.contents);
 
   useEffect(() => {
+    let link = pathname.replace('/d/', '');
+
+    if (link === '/d') {
+      link = '';
+    }
+
     dispatch(resetError());
-    dispatch(load(linkId));
+    dispatch(load(link));
   }, []);
 
   if (error) {

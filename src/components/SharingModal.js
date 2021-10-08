@@ -1,46 +1,45 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { AiOutlineLink } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
-import { useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import { saveContents } from '../api';
 
 const SharingModal = ({ updateModal }) => {
   const CLIENT_PORT = process.env.REACT_APP_CLIENT_PORT;
   const linkValue = useRef();
-  const { text } = useSelector((state) => state.contents);
-  const { url } = useRouteMatch();
-  const linkId = url.slice(1);
-
-  useEffect(() => {
-    saveContents(linkId, text);
-  }, []);
+  const { linkId } = useSelector((state) => state.contents);
+  const { path } = useRouteMatch();
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(linkValue.current.defaultValue);
   };
 
   return (
-    <>
+    <Link to={`${path}/${linkId}`} css={link}>
       <ModalWrapper onClick={() => updateModal(false)} />
       <ModalWindow>
         <IconWrapper onClick={handleCopy} >
-          <AiOutlineLink fontSize={28} color='#ffffff' />
+          <AiOutlineLink fontSize={32} color='#ffffff' />
         </IconWrapper>
         <InputWrapper>
-          <input type='text' value={`http://localhost:${CLIENT_PORT}/${linkId}`} ref={linkValue} readOnly />
+          <input type='text' value={`http://localhost:${CLIENT_PORT}${path}/${linkId}`} ref={linkValue} readOnly />
           <button onClick={handleCopy}>복사</button>
         </InputWrapper>
       </ModalWindow>
-    </>
+    </Link>
   );
 };
 
 SharingModal.propTypes = {
   updateModal: PropTypes.func.isRequired,
 };
+
+const link = css`
+  cursor: default;
+`;
 
 const ModalWrapper = styled.div`
   position: fixed;
