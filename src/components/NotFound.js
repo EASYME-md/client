@@ -47,9 +47,10 @@ const Button = styled(Link)`
   width: 160px;
   margin-top: 20px;
   border: none;
+  border-radius: 10px;
   font-size: 18px;
   font-weight: 600;
-  background-color: seagreen;
+  background-color: #7f8eaa;
   justify-content: center;
   text-decoration-line: none;
   padding: 20px;

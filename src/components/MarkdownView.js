@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
-import './MarkdownView.css';
-
 const MarkdownView = () => {
   const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
 
@@ -35,6 +33,20 @@ const Markdown = styled(MarkdownPreview)`
   padding: 20px;
   border: none;
   width: 50%;
+
+  ${({ className }) => {
+    if (className === 'full-preview') {
+      return `
+        width: 100% !important;
+      `;
+    }
+
+    if (className === 'none-preview') {
+      return `
+        display: none;
+      `;
+    }
+  }};
 `;
 
 export default MarkdownView;
