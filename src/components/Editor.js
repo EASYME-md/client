@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouteMatch, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { addLinkId, addText, addTextArea, saveText } from '../features/slice';
@@ -12,7 +12,6 @@ import { saveContents } from '../api';
 const Editor = () => {
   const inputText = useRef();
   const dispatch = useDispatch();
-  const { path } = useRouteMatch();
   const { pathname } = useLocation();
   const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
 
@@ -56,7 +55,7 @@ const Editor = () => {
         dispatch(saveText());
         saveContents(id, text);
         setTimeout(() => {
-          window.location.href = `${path}/${id}`;
+          window.location.href = `/d/${id}`;
         }, 700);
       }
 
@@ -65,7 +64,7 @@ const Editor = () => {
         dispatch(saveText());
         saveContents(link, text);
         setTimeout(() => {
-          window.location.href = `${path}/${link}`;
+          window.location.href = `/d/${link}`;
         }, 700);
       }
     }
