@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import Title from './Title';
 import TextScreen from './TextScreen';
 import NotFound from './NotFound';
+import Loading from './Loading';
 import { load, resetError } from '../features/slice';
 
 const Home = () => {
@@ -31,7 +32,7 @@ const Home = () => {
     <>
       <Title />
       {isLoading
-        ? <div>로딩중</div>
+        ? <Loading />
         : <TextScreen />
       }
     </>

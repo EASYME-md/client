@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch, useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
-import './Editor.css';
-import { addLinkId, addText, addTextArea, saveText } from '../../features/slice';
-import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
-import addTypeCurrentPosition from '../../utils/addTypeCurrentPosition';
-import { saveContents } from '../../api';
+import { addLinkId, addText, addTextArea, saveText } from '../features/slice';
+import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
+import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
+import { saveContents } from '../api';
 
 const Editor = () => {
   const inputText = useRef();
@@ -132,6 +131,20 @@ const TextArea = styled.textarea`
   :focus {
     outline: none;
   }
+
+  ${({ className }) => {
+    if (className === 'full-editor') {
+      return `
+        width: 100% !important;
+      `;
+    }
+
+    if (className === 'none-editor') {
+      return `
+        display: none;
+      `;
+    }
+  }};
 `;
 
 export default Editor;
