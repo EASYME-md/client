@@ -25,6 +25,7 @@ import CustomTable from './CustomTools/CustomTable';
 import CustomEditorView from './CustomTools/CustomEditorView';
 import CustomMarkdownView from './CustomTools/CustomMarkdownView';
 import CustomFullScreen from './CustomTools/CustomFullScreen';
+import CustomShare from './CustomTools/CustomShare';
 import SectionLine from './shared/SectionLine';
 
 const CustomToolbar = () => {
@@ -59,6 +60,8 @@ const CustomToolbar = () => {
       <CustomEditorView />
       <CustomMarkdownView />
       <CustomFullScreen />
+      <SectionLine />
+      <CustomShare />
     </ToolbarWrapper>
   );
 };

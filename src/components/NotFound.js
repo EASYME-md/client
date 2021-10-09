@@ -11,7 +11,7 @@ const NotFound = ({ message }) => {
         <div>요청한 페이지를 찾을 수 없습니다. 공유되지 않은 주소입니다.</div>
         <div>공유를 원할 경우, '공유하기' 버튼을 눌러주세요.</div>
       </Message>
-      <Button to="/">홈으로 돌아가기</Button>
+      <Button to='/'>홈으로 돌아가기</Button>
     </Wrapper>
   );
 };

@@ -4,6 +4,8 @@ import WELCOME_MESSAGE from '../constants/welcomeMessage';
 
 const initialState = {
   isLoading: false,
+  isSaved: false,
+  linkId: '',
   text: '',
   textArea: null,
   fullEditor: false,
@@ -13,6 +15,9 @@ const initialState = {
 };
 
 const reducers = {
+  addLinkId: (state, action) => {
+    state.linkId = action.payload;
+  },
   addText: (state, action) => {
     state.text = action.payload;
   },
@@ -30,6 +35,9 @@ const reducers = {
   },
   toggleFullScreen: (state) => {
     state.fullScreen = !state.fullScreen;
+  },
+  saveText: (state) => {
+    state.isSaved = !state.isSaved;
   },
   load: (state) => {
     state.isLoading = true;
@@ -64,8 +72,8 @@ export const contentsSelector = {
 
 export const contents = slice.name;
 export const {
-  addText, addTextArea, resetError,
+  addLinkId, addText, addTextArea, resetError,
   toggleEditor, toggleMarkdown, toggleFullScreen,
-  load, loadSuccess, loadFail } = slice.actions;
+  saveText, load, loadSuccess, loadFail } = slice.actions;
 
 export default slice.reducer;
