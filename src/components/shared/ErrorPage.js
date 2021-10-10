@@ -3,20 +3,27 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NotFound = ({ message }) => {
+const ErrorPage = ({ message }) => {
   return (
     <Wrapper>
-      <State>404 {message}</State>
+      <State>{message}</State>
       <Message>
-        <div>요청한 페이지를 찾을 수 없습니다. 공유되지 않은 주소입니다.</div>
-        <div>공유를 원할 경우, '공유하기' 버튼을 눌러주세요.</div>
+        {message > 500
+          ? <>
+            <div>요청한 페이지를 찾을 수 없습니다. 공유되지 않은 주소입니다.</div>
+            <div>공유를 원할 경우, 툴바 가장 오른쪽에 공유 버튼을 눌러주세요.</div>
+          </>
+          : <>
+            <div>알 수 없는 오류입니다. 잠시 후에 다시 시도해주세요</div>
+          </>
+        }
       </Message>
       <Button to='/'>홈으로 돌아가기</Button>
     </Wrapper>
   );
 };
 
-NotFound.propTypes = {
+ErrorPage.propTypes = {
   message: PropTypes.string.isRequired,
 };
 
@@ -57,4 +64,4 @@ const Button = styled(Link)`
   color: white;
 `;
 
-export default NotFound;
+export default ErrorPage;

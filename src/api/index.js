@@ -14,10 +14,10 @@ export const fetchContents = async (linkId) => {
       },
     });
 
-    const { message, text } = await response.json();
+    const { message, code, text } = await response.json();
 
     if (message === 'NOT_FOUND') {
-      throw new Error('Not Found');
+      throw new Error(`${code} Not Found`);
     }
 
     if (message === 'OK') {
@@ -30,7 +30,7 @@ export const fetchContents = async (linkId) => {
 
 export const saveContents = async (linkId, text) => {
   try {
-    await fetch(`http://localhost:${SERVER_PORT}/${linkId}`, {
+    const response = await fetch(`http://localhost:${SERVER_PORT}/${linkId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,6 +38,12 @@ export const saveContents = async (linkId, text) => {
       },
       body: JSON.stringify({ linkId, text }),
     });
+
+    const { code, message } = await response.json();
+
+    if (message !== 'OK') {
+      throw Error(`${code} Internal Server Error`);
+    }
 
   } catch (err) {
     throw err.message;

@@ -17,13 +17,13 @@ const TextScreen = () => {
       <Header className={fullScreen ? 'full-screen' : ''}>
         <CustomToolbar />
       </Header>
-    <TextScreenWrapper>
-      {isSaved && <SaveBox />}
-      <Main>
-        <Editor />
-        <MarkdownView />
-      </Main>
-    </TextScreenWrapper>
+      <TextScreenWrapper>
+        {isSaved && <SaveBox />}
+        <Main>
+          <Editor />
+          <MarkdownView />
+        </Main>
+      </TextScreenWrapper>
     </>
   );
 };

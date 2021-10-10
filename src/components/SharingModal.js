@@ -21,7 +21,7 @@ const SharingModal = ({ updateModal }) => {
       <ModalWrapper onClick={() => updateModal(false)} />
       <ModalWindow>
         <IconWrapper onClick={handleCopy} >
-          <AiOutlineLink fontSize={32} color='#ffffff' />
+          <AiOutlineLink css={icon} />
         </IconWrapper>
         <InputWrapper>
           <input type='text' value={`http://localhost:${CLIENT_PORT}/d/${linkId}`} ref={linkValue} readOnly />
@@ -38,6 +38,11 @@ SharingModal.propTypes = {
 
 const link = css`
   cursor: default;
+`;
+
+const icon = css`
+  font-size: 30px !important;
+  color: #ffffff;
 `;
 
 const ModalWrapper = styled.div`

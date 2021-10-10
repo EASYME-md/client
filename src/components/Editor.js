@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
-import { addLinkId, addText, addTextArea, saveText } from '../features/slice';
+import { addLinkId, addText, addTextArea, saveText, addError } from '../features/slice';
 import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
 import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
 import { saveContents } from '../api';
@@ -23,7 +23,7 @@ const Editor = () => {
     dispatch(addText(e.target.value));
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = async (e) => {
     const isMetaKey = e.metaKey || e.ctrlKey;
 
     if (e.keyCode === 13) {
@@ -51,15 +51,28 @@ const Editor = () => {
       if (!link) {
         const id = nanoid(10);
 
+        try {
+          await saveContents(id, text);
+        } catch (err) {
+          dispatch(addError(err));
+          return;
+        }
+
         dispatch(addLinkId(id));
         dispatch(saveText());
-        saveContents(id, text);
         setTimeout(() => {
           window.location.href = `/d/${id}`;
         }, 700);
       }
 
       if (link) {
+        try {
+          await saveContents(link, text);
+        } catch (err) {
+          dispatch(addError(err));
+          return;
+        }
+
         dispatch(addLinkId(link));
         dispatch(saveText());
         saveContents(link, text);
