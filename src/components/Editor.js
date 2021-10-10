@@ -26,13 +26,13 @@ const Editor = () => {
   const handleKeyDown = (e) => {
     const isMetaKey = e.metaKey || e.ctrlKey;
 
-    if (e.code === 'Enter') {
+    if (e.keyCode === 13) {
       const resultValue = addTypeCurrentPosition(inputText.current, '   ');
 
       dispatch(addText(resultValue));
     }
 
-    if (e.code === 'Tab') {
+    if (e.keyCode === 9) {
       e.preventDefault();
       const resultValue = addTypeCurrentPosition(inputText.current, '  ');
 

@@ -22,26 +22,34 @@ const Wrapper = styled.div`
 const ScreenWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
   height: 70vh;
   background: white;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
+  z-index: 1000;
 
   ${({ className }) => {
     if (className === 'full-screen') {
       return `
         position: fixed !important;
-        z-index: 300;
-        top: 0;
-        left: 0;
         width: 100% !important;
         height: 100% !important;
+        z-index: 300;
+        top: 2rem;
+        left: 0;
         background: white;
       `;
     }
   }};
+
+  @media (max-width: 819px) {
+    top: 7%;
+  }
+
+  @media (max-width: 333px) {
+    top: 9%;
+  }
 `;
 
 export default TextScreenWrapper;

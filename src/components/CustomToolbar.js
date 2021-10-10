@@ -67,9 +67,6 @@ const CustomToolbar = () => {
 };
 
 const ToolbarWrapper = styled.div`
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 5px;
-
   button {
     cursor: pointer;
     vertical-align: middle;

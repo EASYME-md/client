@@ -2,14 +2,23 @@ import React from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { useRouteMatch } from 'react-router';
 
 import character from '../assets/easyme.png';
 
 const Title = () => {
+  const { url } = useRouteMatch();
+
+  const handleTitle = () => {
+    window.location.href = url;
+  };
+
   return (
     <Wrapper>
-      <img src={character} css={image} alt='easyme' />
-      <div css={title}>EASYME.md</div>
+      <ClickWrapper onClick={handleTitle}>
+        <img src={character} css={image} alt='easyme' />
+        <div css={title}>EASYME.md</div>
+      </ClickWrapper>
     </Wrapper>
   );
 };
@@ -21,6 +30,17 @@ const Wrapper = styled.div`
   align-items: center;
   margin-top: 30px;
   margin-bottom: 30px;
+`;
+
+const ClickWrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 `;
 
 const image = css`
@@ -42,10 +62,6 @@ const title = css`
   color: white;
   font-size: 4rem;
   text-shadow: 4px 6px 10px rgba(33, 40, 56, 0.2);
-  user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
 `;
 
 export default Title;
