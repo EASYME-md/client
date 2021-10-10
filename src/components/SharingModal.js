@@ -4,28 +4,27 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { AiOutlineLink } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const SharingModal = ({ updateModal }) => {
   const CLIENT_PORT = process.env.REACT_APP_CLIENT_PORT;
   const linkValue = useRef();
   const { linkId } = useSelector((state) => state.contents);
-  const { path } = useRouteMatch();
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(linkValue.current.defaultValue);
   };
 
   return (
-    <Link to={`${path}/${linkId}`} css={link}>
+    <Link to={`/d/${linkId}`} css={link}>
       <ModalWrapper onClick={() => updateModal(false)} />
       <ModalWindow>
         <IconWrapper onClick={handleCopy} >
           <AiOutlineLink fontSize={32} color='#ffffff' />
         </IconWrapper>
         <InputWrapper>
-          <input type='text' value={`http://localhost:${CLIENT_PORT}${path}/${linkId}`} ref={linkValue} readOnly />
+          <input type='text' value={`http://localhost:${CLIENT_PORT}/d/${linkId}`} ref={linkValue} readOnly />
           <button onClick={handleCopy}>복사</button>
         </InputWrapper>
       </ModalWindow>
