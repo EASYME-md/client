@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import Title from './Title';
 import TextScreen from './TextScreen';
-import NotFound from './NotFound';
+import ErrorPage from './shared/ErrorPage';
 import Loading from './Loading';
 import { load, resetError } from '../features/slice';
 
@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   if (error) {
-    return <NotFound message={error} />;
+    return <ErrorPage message={error} />;
   }
 
   return (

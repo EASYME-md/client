@@ -27,6 +27,9 @@ const reducers = {
   resetError: (state) => {
     state.error = null;
   },
+  addError: (state, action) => {
+    state.error = action.payload;
+  },
   toggleEditor: (state) => {
     state.fullEditor = !state.fullEditor;
   },
@@ -72,7 +75,7 @@ export const contentsSelector = {
 
 export const contents = slice.name;
 export const {
-  addLinkId, addText, addTextArea, resetError,
+  addLinkId, addText, addTextArea, resetError, addError,
   toggleEditor, toggleMarkdown, toggleFullScreen,
   saveText, load, loadSuccess, loadFail } = slice.actions;
 
