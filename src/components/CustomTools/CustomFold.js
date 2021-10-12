@@ -16,7 +16,7 @@ const CustomFold = () => {
   };
 
   return (
-    <button className='ql-fold' title='Fold' onClick={handleButton}>
+    <button title='Fold' onClick={handleButton}>
       <AiOutlineCaretRight />
     </button>
   );

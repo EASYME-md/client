@@ -13,7 +13,7 @@ const CustomFullScreen = () => {
   };
 
   return (
-    <button className='ql-full-screen' title='Full screen' onClick={handleButton}>
+    <button title='Full screen' onClick={handleButton}>
       {fullScreen
         ? <BsFullscreenExit />
         : <BsArrowsFullscreen />}

@@ -16,7 +16,7 @@ const CustomOrderedList = () => {
   };
 
   return (
-    <button className='ql-ordered-list' title='Ordered list' onClick={handleButton}>
+    <button title='Ordered list' onClick={handleButton}>
       <FaListOl />
     </button>
   );

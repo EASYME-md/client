@@ -31,7 +31,6 @@ const CustomFirstLetterUppercase = () => {
 
   return (
     <button
-      className='ql-first-letter-uppercase'
       title='Convert first letter to uppercase'
       onClick={handleButton}
     >

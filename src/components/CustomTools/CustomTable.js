@@ -16,7 +16,7 @@ const CustomTable = () => {
   };
 
   return (
-    <button className='ql-table' title='Table' onClick={handleButton}>
+    <button title='Table' onClick={handleButton}>
       <FaTable />
     </button>
   );

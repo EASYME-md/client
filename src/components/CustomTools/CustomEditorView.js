@@ -13,7 +13,7 @@ const CustomEditorView = () => {
   };
 
   return (
-    <button className='ql-editor-view' title='Only editor preview' onClick={handleButton}>
+    <button title='Only editor preview' onClick={handleButton}>
       {fullEditor
         ? <MdSpeakerNotesOff />
         : <MdSpeakerNotes />}

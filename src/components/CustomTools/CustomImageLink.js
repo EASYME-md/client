@@ -20,7 +20,7 @@ const CustomImageLink = () => {
   };
 
   return (
-    <button className='ql-image' title='image' onClick={handleButton}>
+    <button title='image' onClick={handleButton}>
       <FaRegImage />
     </button>
   );

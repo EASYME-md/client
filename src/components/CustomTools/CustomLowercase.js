@@ -28,7 +28,7 @@ const CustomLowercase = () => {
   };
 
   return (
-    <button className='ql-lowercase' title='Lowercase' onClick={handleButton}>
+    <button title='Lowercase' onClick={handleButton}>
       <FaAmilia />
     </button>
   );

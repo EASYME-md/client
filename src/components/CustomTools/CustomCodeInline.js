@@ -16,7 +16,7 @@ const CustomCodeInline = () => {
   };
 
   return (
-    <button className='ql-code-inline' title='Code inline' onClick={handleButton}>
+    <button title='Code inline' onClick={handleButton}>
       <FaCode />
     </button>
   );

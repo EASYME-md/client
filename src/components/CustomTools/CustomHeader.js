@@ -24,7 +24,7 @@ const CustomHeader = () => {
   };
 
   return (
-    <select className='ql-header' onChange={handleButton}>
+    <select onChange={handleButton}>
       <option value={1}># Heading</option>
       <option value={2}>## Heading</option>
       <option value={3}>### Heading</option>
