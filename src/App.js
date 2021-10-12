@@ -3,10 +3,12 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
 import ErrorPage from './components/shared/ErrorPage';
+import ReactHelmet from './components/ReactHelmet';
 
 const App = () => {
   return (
     <>
+      <ReactHelmet />
       <Switch>
         <Route exact path='/d' component={Home} />
         <Route path='/d/:linkId' component={Home} />
