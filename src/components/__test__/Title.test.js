@@ -1,37 +1,33 @@
 /** * @jest-environment jsdom */
 import React from 'react';
-import ReactDOM, { unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
-import '@testing-library/jest-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 import Title from '../Title';
 
-let container = null;
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-test('Title Test', () => {
-  const history = createMemoryHistory();
-
-  act(() => {
-    ReactDOM.render(
-      <Router history={history}>
+describe('<Title />', () => {
+  it('should match the title', () => {
+    const { getByText } = render(
+      <Router>
         <Title />
-      </Router>,
-      container
+      </Router>
     );
+
+    const title = getByText('EASYME.md');
+
+    expect(title).toBeInTheDocument();
+    expect(title).toHaveTextContent('EASYME.md');
   });
 
-  expect(container.textContent).toBe('EASYME.md');
+  it('should match image', () => {
+    const { getByAltText } = render(
+      <Router>
+        <Title />
+      </Router>
+    );
+
+    const image = getByAltText('easyme');
+
+    expect(image).toHaveAttribute('src');
+  });
 });

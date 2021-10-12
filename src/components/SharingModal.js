@@ -63,7 +63,7 @@ const ModalWindow = styled.div`
   height: 160px;
   padding: 40px;
   text-align: center;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-20%);
   z-index: 200;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.18);
