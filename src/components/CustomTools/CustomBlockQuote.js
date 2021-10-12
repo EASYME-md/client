@@ -16,7 +16,7 @@ const CustomBlockQuote = () => {
   };
 
   return (
-    <button className='ql-blockquote' title='Block quote' onClick={handleButton}>
+    <button title='Block quote' onClick={handleButton}>
       <FaQuoteLeft />
     </button>
   );

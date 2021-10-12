@@ -20,7 +20,7 @@ const CustomLink = () => {
   };
 
   return (
-    <button className='ql-link' title='Link' onClick={handleButton}>
+    <button title='Link' onClick={handleButton}>
       <FaLink />
     </button>
   );

@@ -10,13 +10,13 @@ const CustomContents = () => {
   const { textArea } = useSelector((state) => state.contents);
 
   const handleButton = () => {
-    const resultValue = addTypeCurrentPosition(textArea, '\n1. [title1](#wirte-title-here!)\n2. [title2](#only-lowercase)\n3. [title3](#use"-"instead-of-spacing-words)\n4. [title4](#example)\n    - [EASYME.md가 뭐예요?](#easymemd가-뭐예요)\n    - [좀 더 구체적으로 가르쳐주세요!](#좀-더-구체적으로-가르쳐주세요)\n');
+    const resultValue = addTypeCurrentPosition(textArea, '1. [title1](#wirte-title-here!)   \n2. [title2](#only-lowercase)   \n3. [title3](#use"-"instead-of-spacing-words)   \n4. [title4](#example)   \n    - [❓ EASYME.md가 뭐예요?](#-easymemd가-뭐예요)   \n    - [🛠 기능 엿보기](#-기능-엿보기)');
 
     dispatch(addText(resultValue));
   };
 
   return (
-    <button className='ql-contents' title='Table of contents' onClick={handleButton}>
+    <button title='Table of contents' onClick={handleButton}>
       <CgListTree />
     </button>
   );

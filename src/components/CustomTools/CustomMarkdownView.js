@@ -13,7 +13,7 @@ const CustomMarkdownView = () => {
   };
 
   return (
-    <button className='ql-preview' title='Only markdown preview' onClick={handleButton}>
+    <button title='Only markdown preview' onClick={handleButton}>
       {fullMarkdown
         ? <BsFillEyeSlashFill />
         : <BsEyeFill />}

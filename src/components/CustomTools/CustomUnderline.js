@@ -16,7 +16,7 @@ const CustomUnderline = () => {
   };
 
   return (
-    <button className='ql-underline' title='Underline' onClick={handleButton}>
+    <button title='Underline' onClick={handleButton}>
       <FaUnderline />
     </button>
   );

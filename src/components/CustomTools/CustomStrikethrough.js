@@ -16,7 +16,7 @@ const CustomStrikethrough = () => {
   };
 
   return (
-    <button className='ql-strike' title='Strikethrough' onClick={handleButton}>
+    <button title='Strikethrough' onClick={handleButton}>
       <FaStrikethrough />
     </button>
   );

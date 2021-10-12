@@ -16,7 +16,7 @@ const CustomBold = () => {
   };
 
   return (
-    <button className='ql-bold' title='Bold' onClick={handleButton}>
+    <button title='Bold' onClick={handleButton}>
       <FaBold />
     </button>
   );

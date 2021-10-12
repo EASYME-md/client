@@ -7,7 +7,7 @@ const CustomRedo = () => {
   };
 
   return (
-    <button className='ql-redo' title='Redo' onClick={handleButton}>
+    <button title='Redo' onClick={handleButton}>
       <FaRedoAlt />
     </button>
   );

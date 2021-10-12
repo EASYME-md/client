@@ -16,7 +16,7 @@ const CustomCodeBlock = () => {
   };
 
   return (
-    <button className='ql-custom-code-block' title='Code block' onClick={handleButton}>
+    <button title='Code block' onClick={handleButton}>
       <GoFileCode />
     </button>
   );

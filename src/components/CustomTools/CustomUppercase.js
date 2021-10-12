@@ -29,7 +29,7 @@ const CustomUppercase = () => {
   };
 
   return (
-    <button className='ql-uppercase' title='Uppercase' onClick={handleButton}>
+    <button title='Uppercase' onClick={handleButton}>
       <FaFont />
     </button>
   );

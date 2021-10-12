@@ -16,7 +16,7 @@ const CustomItalic = () => {
   };
 
   return (
-    <button className='ql-italic' title='Italic' onClick={handleButton}>
+    <button title='Italic' onClick={handleButton}>
       <FaItalic />
     </button>
   );

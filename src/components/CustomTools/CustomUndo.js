@@ -7,7 +7,7 @@ const CustomUndo = () => {
   };
 
   return (
-    <button className='ql-undo' title='Undo' onClick={handleButton}>
+    <button title='Undo' onClick={handleButton}>
       <FaUndoAlt />
     </button>
   );

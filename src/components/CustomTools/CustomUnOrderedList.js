@@ -16,10 +16,7 @@ const CustomUnOrderedList = () => {
   };
 
   return (
-    <button
-      className='ql-unordered-list'
-      title='Unordered list'
-      onClick={handleButton}>
+    <button title='Unordered list' onClick={handleButton}>
       <FaListUl />
     </button>
   );

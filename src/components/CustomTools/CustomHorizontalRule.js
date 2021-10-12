@@ -16,7 +16,7 @@ const CustomHorizontalRule = () => {
   };
 
   return (
-    <button className='ql-horizontal-rule' title='Horizontal rule' onClick={handleButton}>
+    <button title='Horizontal rule' onClick={handleButton}>
       <AiOutlineLine />
     </button>
   );
