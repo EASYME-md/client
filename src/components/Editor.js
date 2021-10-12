@@ -123,6 +123,7 @@ const Editor = () => {
 
   return (
     <TextArea
+      id='textarea'
       className={handleClassName()}
       value={text}
       onChange={onChangeText}

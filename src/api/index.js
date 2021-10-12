@@ -6,7 +6,7 @@ export const fetchContents = async (linkId) => {
       return;
     }
 
-    const response = await fetch(`http://localhost:${SERVER_PORT}/${linkId}`, {
+    const response = await fetch(`http://localhost:${SERVER_PORT}/d/${linkId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const fetchContents = async (linkId) => {
 
 export const saveContents = async (linkId, text) => {
   try {
-    const response = await fetch(`http://localhost:${SERVER_PORT}/${linkId}`, {
+    const response = await fetch(`http://localhost:${SERVER_PORT}/d/${linkId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
