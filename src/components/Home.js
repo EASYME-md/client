@@ -22,7 +22,7 @@ const Home = () => {
 
     dispatch(resetError());
     dispatch(load(link));
-  }, []);
+  }, [dispatch, pathname]);
 
   if (error) {
     return <ErrorPage message={error} />;
