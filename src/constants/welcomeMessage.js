@@ -91,7 +91,7 @@ const WELCOME_MESSAGE = `# 🙌 안녕하세요. 한재원입니다!
 - [🙋‍♂️ Visit "Jaewon Han" Github](https://github.com/onealog)
 
 ### Image link
-![onealog](https://avatars.githubusercontent.com/u/41319143?v=4)   
+![onealog](https://i.ibb.co/sPJNDcc/onealog.jpg)   
 Hello! I'm Jaewon Han 😃 
    
 <br>   
