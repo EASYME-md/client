@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid';
 
 import { addLinkId, addText, addTextArea, saveText, addError } from '../features/slice';
 import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
-import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
 import { saveContents } from '../api';
 
 const Editor = () => {
@@ -17,7 +16,7 @@ const Editor = () => {
 
   useEffect(() => {
     dispatch(addTextArea(inputText.current));
-  }, []);
+  }, [dispatch]);
 
   const onChangeText = (e) => {
     dispatch(addText(e.target.value));

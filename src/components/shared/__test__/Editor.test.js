@@ -1,7 +1,7 @@
 /** * @jest-environment jsdom */
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { render, fireEvent } from '@testing-library/react';
 
 import Editor from '../../Editor';
