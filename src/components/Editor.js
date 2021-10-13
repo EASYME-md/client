@@ -26,19 +26,6 @@ const Editor = () => {
   const handleKeyDown = async (e) => {
     const isMetaKey = e.metaKey || e.ctrlKey;
 
-    if (e.keyCode === 13) {
-      const resultValue = addTypeCurrentPosition(inputText.current, '   ');
-
-      dispatch(addText(resultValue));
-    }
-
-    if (e.keyCode === 9) {
-      e.preventDefault();
-      const resultValue = addTypeCurrentPosition(inputText.current, '  ');
-
-      dispatch(addText(resultValue));
-    }
-
     if (e.code === 'KeyS' && isMetaKey) {
       e.preventDefault();
 
