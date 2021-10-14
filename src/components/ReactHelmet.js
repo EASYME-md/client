@@ -25,6 +25,8 @@ const ReactHelmet = () => {
         <meta property='og:image' content={image} />
         <meta property='og:url' content={CLIENT_URI} />
         <meta property='og:site_name' content={title} />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
 
         <meta name='twitter:title' content={title} />
         <meta name='twitter:description' content={description} />
