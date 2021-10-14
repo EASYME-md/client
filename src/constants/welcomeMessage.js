@@ -64,7 +64,7 @@ const WELCOME_MESSAGE = `# 🙌 안녕하세요. 한재원입니다!
    
 ## List   
 ### Table of contents
-1. [title1](#wirte-title-here!)   
+1. [title1](#write-title-here!)   
 2. [title2](#only-lowercase)   
 3. [title3](#use"-"instead-of-spacing-words)   
 4. [title4](#example)   
