@@ -1,39 +1,38 @@
 # 😉 EASYME.md
 
-README.md를 쉽게 작성하는 방법! EASYME.md
-#README #Markdown #리드미 #빠르고쉽게 #에디터
+`#README` `#Markdown` `#리드미` `#빠르고쉽게` `#에디터`   
+
+README.md를 쉽게 작성하는 방법! **EASYME.md**   
+
+---
+
 ![cover](readme-assets/cover.png)
 
-Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버벅거리는 당신.</u> 지금 'Markdown 사용법'이라고 검색하고 계신거 아니죠? 🤭
-이젠 더 이상 그럴 필요가 없어요. **EASYME.md를 통해 쉽게 Markdown을 작성할 수 있거든요.**
-왼쪽 화면에 글을 작성하면 오른쪽 화면에 실시간으로 Markdown이 적용된 글을 확인할 수 있어요. Markdown 문법이 잘 기억나지 않는다고요? 괜찮아요! 🙂 툴바창에 다양한 기능을 적용하면 자동으로 Markdown 문법이 적용되니까요.
-어때요? 이제 쉽게 README.md를 작성할 수 있겠죠?
+Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버벅거리는 당신.</u> 지금 'Markdown 사용법'이라고 검색하고 계신거 아니죠? 🤭   
+이젠 더 이상 그럴 필요가 없어요. **EASYME.md를 통해 쉽게 Markdown을 작성할 수 있거든요.**   
+왼쪽 화면에 글을 작성하면 오른쪽 화면에 실시간으로 Markdown이 적용된 글을 확인할 수 있어요. Markdown 문법이 잘 기억나지 않는다고요? 괜찮아요! 🙂 툴바창에 다양한 기능을 적용하면 자동으로 Markdown 문법이 적용되니까요.   
+어때요? 이제 쉽게 README.md를 작성할 수 있겠죠?   
 
 *(🤙 지금 이 글도 EASYME.md를 통해 작성하였답니다)*
+
+<br>
 
 # 📖 Contents
 
 - [😉 EASYME.md](#-easymemd)
 - [📖 Contents](#-contents)
-  - [Github Repositories](#github-repositories)
 - [🔍 Preview](#-preview)
 - [🛠 Features](#-features)
 - [⚠️ Requirement](#️-requirement)
 - [⚙️ Installation](#️-installation)
-  - [Setup](#setup)
-  - [Client](#client)
-  - [Server](#server)
 - [🪃 Skills](#-skills)
-  - [Client](#client-1)
-  - [Server](#server-1)
-  - [Test](#test)
 - [🪛 Project Control](#-project-control)
 - [🚀 Deployment](#-deployment)
 - [🧗 Challenges](#-challenges)
-  - [React Quill을 걷어내다](#react-quill을-걷어내다)
-  - [Redo, Undo가 작동하지 않다](#redo-undo가-작동하지-않다)
 
-- # 🔗 Link
+<br>
+
+# 🔗 Link
 
 - [https://www.easyme.online/](https://www.easyme.online/)
 
@@ -42,9 +41,13 @@ Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버�
 - Client: [https://github.com/EASYME-md/client](https://github.com/EASYME-md/client)
 - Server: [https://github.com/EASYME-md/server](https://github.com/EASYME-md/server)
 
+<br>
+
 # 🔍 Preview
 
 ![title](readme-assets/preview.gif)
+
+<br>
 
 # 🛠 Features
 
@@ -60,9 +63,13 @@ Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버�
     - 작성한 글을 저장하고 다른 사람에 공유할 수 있습니다.
     - 작성 도중 단축키 `Ctrl+S(Command+S)`로 글을 저장할 수도 있습니다.
 
+<br>
+
 # ⚠️ Requirement
 
 최신 Chrome Browser 사용을 권장합니다.
+
+<br>
 
 # ⚙️ Installation
 
@@ -103,6 +110,8 @@ MONGODB_ADDRESS=<mongoDB address>
 CLIENT_URI=https://easyme.online
 ```
 
+<br>
+
 # 🪃 Skills
 
 ## Client
@@ -128,19 +137,25 @@ CLIENT_URI=https://easyme.online
 - Client: Jest, Testing Library
 - Server: Mocha, Chai, Supertest
 
+<br>
+
 # 🪛 Project Control
 
 - Version Control: Git, Github
 - Task Control: Notion, Figma
+
+<br>
 
 # 🚀 Deployment
 
 - Client: Netlify
 - Server: AWS Elastic Beanstalk
 
+<br>
+
 # 🧗 Challenges
 
-2주 동안 프로젝트를 진행하면서 겪은 어려움 또는 도전은 아래와 같습니다.
+3주 동안 프로젝트를 진행하면서 겪은 어려움 또는 도전은 아래와 같습니다.
 
 ## React Quill을 걷어내다
 
