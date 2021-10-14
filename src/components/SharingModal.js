@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const SharingModal = ({ updateModal }) => {
-  const CLIENT_PORT = process.env.REACT_APP_CLIENT_PORT;
+  const CLIENT_URI = process.env.REACT_APP_CLIENT_URI;
   const linkValue = useRef();
   const { linkId } = useSelector((state) => state.contents);
 
@@ -24,7 +24,7 @@ const SharingModal = ({ updateModal }) => {
           <AiOutlineLink css={icon} />
         </IconWrapper>
         <InputWrapper>
-          <input type='text' value={`http://localhost:${CLIENT_PORT}/d/${linkId}`} ref={linkValue} readOnly />
+          <input type='text' value={`${CLIENT_URI}/d/${linkId}`} ref={linkValue} readOnly />
           <button onClick={handleCopy}>복사</button>
         </InputWrapper>
       </ModalWindow>

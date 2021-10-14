@@ -1,5 +1,6 @@
 {
-  "name": "EASYME",
+  "name": "easyme",
+  "homepage": "https://www.easyme.online/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
