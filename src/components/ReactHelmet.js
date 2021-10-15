@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import favicon from '../assets/easyme.ico';
-import image from '../assets/thumbnail.png';
+import image from '../assets/preview.png';
 
 const ReactHelmet = () => {
   const CLIENT_URI = process.env.REACT_APP_CLIENT_URI;
@@ -25,8 +25,6 @@ const ReactHelmet = () => {
         <meta property='og:image' content={image} />
         <meta property='og:url' content={CLIENT_URI} />
         <meta property='og:site_name' content={title} />
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='630' />
 
         <meta name='twitter:title' content={title} />
         <meta name='twitter:description' content={description} />
