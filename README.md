@@ -1,39 +1,41 @@
 # 😉 EASYME.md
 
-README.md를 쉽게 작성하는 방법! EASYME.md
-#README #Markdown #리드미 #빠르고쉽게 #에디터
+`#README` `#Markdown` `#리드미` `#빠르고쉽게` `#에디터`   
+
+README.md를 쉽게 작성하는 방법! **EASYME.md**   
+
+---
+
 ![cover](readme-assets/cover.png)
 
-Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버벅거리는 당신.</u> 지금 'Markdown 사용법'이라고 검색하고 계신거 아니죠? 🤭
-이젠 더 이상 그럴 필요가 없어요. **EASYME.md를 통해 쉽게 Markdown을 작성할 수 있거든요.**
-왼쪽 화면에 글을 작성하면 오른쪽 화면에 실시간으로 Markdown이 적용된 글을 확인할 수 있어요. Markdown 문법이 잘 기억나지 않는다고요? 괜찮아요! 🙂 툴바창에 다양한 기능을 적용하면 자동으로 Markdown 문법이 적용되니까요.
-어때요? 이제 쉽게 README.md를 작성할 수 있겠죠?
+Markdown 문법, 알고는 있는데.. README.md 작성할 때만 되면 버벅거리는 당신.   
+지금 'Markdown 사용법'이라고 검색하고 계신거 아니죠? 🤭   
+이젠 더 이상 그럴 필요가 없어요. **EASYME.md를 통해 쉽게 Markdown을 작성할 수 있거든요.**   
+왼쪽 화면에 글을 작성하면 오른쪽 화면에 실시간으로 Markdown이 적용된 글을 확인할 수 있어요. Markdown 문법이 잘 기억나지 않는다고요? 괜찮아요! 🙂 툴바창에 다양한 기능을 적용하면 자동으로 Markdown 문법이 적용되니까요.   
+어때요? 이제 쉽게 README.md를 작성할 수 있겠죠?   
 
 *(🤙 지금 이 글도 EASYME.md를 통해 작성하였답니다)*
+
+<br>
 
 # 📖 Contents
 
 - [😉 EASYME.md](#-easymemd)
 - [📖 Contents](#-contents)
-  - [Github Repositories](#github-repositories)
+- [🔗 Link](#-link)
 - [🔍 Preview](#-preview)
 - [🛠 Features](#-features)
 - [⚠️ Requirement](#️-requirement)
 - [⚙️ Installation](#️-installation)
-  - [Setup](#setup)
-  - [Client](#client)
-  - [Server](#server)
 - [🪃 Skills](#-skills)
-  - [Client](#client-1)
-  - [Server](#server-1)
-  - [Test](#test)
 - [🪛 Project Control](#-project-control)
 - [🚀 Deployment](#-deployment)
 - [🧗 Challenges](#-challenges)
-  - [React Quill을 걷어내다](#react-quill을-걷어내다)
-  - [Redo, Undo가 작동하지 않다](#redo-undo가-작동하지-않다)
+- [🙏 마무리하며..](#-마무리하며)
 
-- # 🔗 Link
+<br>
+
+# 🔗 Link
 
 - [https://www.easyme.online/](https://www.easyme.online/)
 
@@ -42,9 +44,13 @@ Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버�
 - Client: [https://github.com/EASYME-md/client](https://github.com/EASYME-md/client)
 - Server: [https://github.com/EASYME-md/server](https://github.com/EASYME-md/server)
 
+<br>
+
 # 🔍 Preview
 
 ![title](readme-assets/preview.gif)
+
+<br>
 
 # 🛠 Features
 
@@ -60,9 +66,13 @@ Markdown 문법, 알고는 있는데.. <u>README.md 작성할 때만 되면 버�
     - 작성한 글을 저장하고 다른 사람에 공유할 수 있습니다.
     - 작성 도중 단축키 `Ctrl+S(Command+S)`로 글을 저장할 수도 있습니다.
 
+<br>
+
 # ⚠️ Requirement
 
 최신 Chrome Browser 사용을 권장합니다.
+
+<br>
 
 # ⚙️ Installation
 
@@ -103,6 +113,8 @@ MONGODB_ADDRESS=<mongoDB address>
 CLIENT_URI=https://easyme.online
 ```
 
+<br>
+
 # 🪃 Skills
 
 ## Client
@@ -128,19 +140,25 @@ CLIENT_URI=https://easyme.online
 - Client: Jest, Testing Library
 - Server: Mocha, Chai, Supertest
 
+<br>
+
 # 🪛 Project Control
 
 - Version Control: Git, Github
 - Task Control: Notion, Figma
+
+<br>
 
 # 🚀 Deployment
 
 - Client: Netlify
 - Server: AWS Elastic Beanstalk
 
+<br>
+
 # 🧗 Challenges
 
-2주 동안 프로젝트를 진행하면서 겪은 어려움 또는 도전은 아래와 같습니다.
+2주 동안 기능 개발을 하면서 겪은 어려움 또는 도전은 아래와 같습니다.
 
 ## React Quill을 걷어내다
 
@@ -159,3 +177,15 @@ CLIENT_URI=https://easyme.online
 해결책을 마련하기 위해 여러 차례 방법을 모색하던중 `text-field-edit`이라는 라이브러리를 알게되었습니다. 해당 라이브러리는 자체적으로 텍스트를 다른 텍스트로 감싸주거나 insertText 기능 등 Markdown 문법을 적용하기에 훨씬 수월하게 설계되어 있었던 라이브러리였습니다. **하지만 단순히 라이브러리로 쉽게 적용하는 것은 스스로의 성장에도 도움이 되지 않을 거라 판단했고,** textarea 안에 요소들을 토대로 직접 구현하는 게 더 의미가 있다고 생각했습니다. 대신에 해당 라이브러리의 `replace` 기능만 활용하기로 했습니다. 초기에 생각했던 아이디어의 가능여부를 확인하고 싶었기 때문입니다. 결국 `replace`를 사용하여 redo, undo가 작동되는 것을 확인할 수 있었습니다.
 
 내 아이디어가 어느정도 증명되었다는 것에서 뿌듯함을 느낀 것은 사실이지만 라이브러리의 도움 없이 직접 구현해보고 싶었던 마음이었기에 내심 아쉬움도 있습니다. 이 부분은 여기서 끝내지 않고 스스로가 더 성장할 수 있도록 직접 구현에 도전할 예정입니다.
+
+<br>
+
+# 🙏 마무리하며..
+
+"가능할까? 가능하다!"   
+
+개발자로 전향을 마음 먹기 전, 스타트업 회사에서 마케터로 3년 가까이 있었습니다. 고객들의 불편함을 해소해주는 일들을 옆에서 지켜보고 동참하면서 언젠간 '내가 직접 만든 제품이 고객들의 불편함을 조금이나마 해소시켜줄 수 있다면 좋겠다'는 생각을 했습니다.   
+
+그 첫 시작이 이 프로젝트라고 생각합니다. 스스로 고객(여기서는 수많은 개발자들 중 한명이겠죠)이 되어 README를 작성할 때 겪었던 불편함을 개선해보고 싶었습니다. 단순히 머릿속에 둥둥 떠다니는 아이디어가 '가능할까?'라는 스스로의 호기심 어린 물음에서 '가능하다!'라는 마침표를 찍었다는 점에서 의미가 깊습니다.   
+
+이 프로젝트를 시작으로 새로운 마침표들을 하나 둘씩 찍어가는 개발자가 되고 싶습니다 🙂   
