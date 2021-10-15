@@ -1,6 +1,7 @@
 import { replace } from 'text-field-edit';
 
 const addTypeCurrentRow = (textArea, type) => {
+  const scroll = textArea.scrollTop;
   const startPosition = textArea.selectionStart;
   const currentRow = textArea.value.substring(0, startPosition).split('\n');
   const currentRowLength = currentRow[currentRow.length - 1].length;
@@ -11,6 +12,7 @@ const addTypeCurrentRow = (textArea, type) => {
 
   replace(textArea, textArea.value, result);
   textArea.focus();
+  textArea.scrollTop = scroll;
   textArea.selectionStart = startPosition - currentRowLength + type.length;
   textArea.selectionEnd = textArea.selectionStart;
 

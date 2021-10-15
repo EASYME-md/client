@@ -10,6 +10,7 @@ const CustomLowercase = () => {
   const { textArea } = useSelector((state) => state.contents);
 
   const handleButton = () => {
+    const scroll = textArea.scrollTop;
     const startPosition = textArea.selectionStart;
     const endPosition = textArea.selectionEnd;
     const draggedLength = endPosition - startPosition;
@@ -21,6 +22,7 @@ const CustomLowercase = () => {
 
     replace(textArea, textArea.value, result);
     textArea.focus();
+    textArea.scrollTop = scroll;
     textArea.selectionStart = startPosition + draggedLength;
     textArea.selectionEnd = textArea.selectionStart;
 

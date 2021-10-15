@@ -10,6 +10,7 @@ const CustomUppercase = () => {
   const { textArea } = useSelector((state) => state.contents);
 
   const handleButton = () => {
+    const scroll = textArea.scrollTop;
     const startPosition = textArea.selectionStart;
     const endPosition = textArea.selectionEnd;
     const draggedLength = endPosition - startPosition;
@@ -17,11 +18,11 @@ const CustomUppercase = () => {
     const startText = textArea.value.substring(startPosition, 0);
     const endText = textArea.value.substring(startPosition + draggedLength);
     const draggedText = textArea.value.substring(startPosition, endPosition).toUpperCase();
-
     const result = startText + draggedText + endText;
 
     replace(textArea, textArea.value, result);
     textArea.focus();
+    textArea.scrollTop = scroll;
     textArea.selectionStart = startPosition + draggedLength;
     textArea.selectionEnd = textArea.selectionStart;
 

@@ -1,6 +1,7 @@
 import { replace } from 'text-field-edit';
 
 const addTypeBeforeAndAfter = (textArea, typeA, typeB = typeA) => {
+  const scroll = textArea.scrollTop;
   const startPosition = textArea.selectionStart;
   const endPosition = textArea.selectionEnd;
   const draggedLength = endPosition - startPosition;
@@ -12,6 +13,7 @@ const addTypeBeforeAndAfter = (textArea, typeA, typeB = typeA) => {
 
   replace(textArea, textArea.value, result);
   textArea.focus();
+  textArea.scrollTop = scroll;
   textArea.selectionStart = startPosition + draggedLength + typeA.length + typeB.length;
   textArea.selectionEnd = textArea.selectionStart;
 
