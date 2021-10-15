@@ -4,6 +4,7 @@ const addTypeDraggedRows = (textArea, type) => {
   let result = '';
   let startPosition = textArea.selectionStart;
   const endPosition = textArea.selectionEnd;
+  const scroll = textArea.scrollTop;
   const startRow = textArea.value.substring(0, startPosition).split('\n');
   const startRowLength = startRow[startRow.length - 1].length;
   const draggedRows = textArea.value.substring(startPosition, endPosition).split('\n');
@@ -42,6 +43,7 @@ const addTypeDraggedRows = (textArea, type) => {
 
   replace(textArea, textArea.value, result);
   textArea.focus();
+  textArea.scrollTop = scroll;
   textArea.selectionStart = startPosition;
   textArea.selectionEnd = textArea.selectionStart;
 

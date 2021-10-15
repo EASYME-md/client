@@ -21,10 +21,12 @@ const CustomHeader = () => {
     const resultValue = addTypeCurrentRow(textArea, header);
 
     dispatch(addText(resultValue));
+    e.target.value = 0;
   };
 
   return (
     <select onChange={handleButton}>
+      <option value={0}>Select Header</option>
       <option value={1}># Heading</option>
       <option value={2}>## Heading</option>
       <option value={3}>### Heading</option>

@@ -10,6 +10,7 @@ const CustomFirstLetterUppercase = () => {
   const { textArea } = useSelector((state) => state.contents);
 
   const handleButton = () => {
+    const scroll = textArea.scrollTop;
     const startPosition = textArea.selectionStart;
     const endPosition = textArea.selectionEnd;
     const draggedLength = endPosition - startPosition;
@@ -23,6 +24,7 @@ const CustomFirstLetterUppercase = () => {
 
     replace(textArea, textArea.value, result);
     textArea.focus();
+    textArea.scrollTop = scroll;
     textArea.selectionStart = startPosition + draggedLength;
     textArea.selectionEnd = textArea.selectionStart;
 
