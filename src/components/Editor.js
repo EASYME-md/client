@@ -115,6 +115,7 @@ const Editor = () => {
       onChange={onChangeText}
       onKeyDown={handleKeyDown}
       ref={inputText}
+      spellCheck='false'
     />
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
 import ErrorPage from './components/shared/ErrorPage';
