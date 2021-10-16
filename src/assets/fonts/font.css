@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Rubik';
+  font-display: fallback;
+
+  src: local('Rubik'),
+      url('./Rubik-ExtraBold.eot?iefix') format('embedded-opentype'),
+      url('./Rubik-ExtraBold.woff2') format('woff2'),
+      url('./Rubik-ExtraBold.woff') format('woff'),
+      url('./Rubik-ExtraBold.ttf') format('truetype');
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-display: fallback;
+
+  src: local('Noto Sans KR'),
+      url('./NotoSansKR-Regular.eot?iefix') format('embedded-opentype'),
+      url('./NotoSansKR-Regular.woff2') format('woff2'),
+      url('./NotoSansKR-Regular.woff') format('woff'),
+      url('./NotoSansKR-Regular.ttf') format('truetype');
+
+  font-style: normal;
+}
