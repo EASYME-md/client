@@ -123,6 +123,8 @@ const Editor = () => {
 const TextArea = styled.textarea`
   resize: none;
   box-sizing: border-box;
+  font-family: 'Noto Sans KR';
+  font-size: 16px;
   padding: 20px;
   border: none;
   border-right: 1px solid #dddddd;
