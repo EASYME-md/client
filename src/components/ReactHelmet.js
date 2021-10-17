@@ -12,8 +12,9 @@ const ReactHelmet = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <meta charSet='utf-8' />
         <link rel='icon' href={favicon} />
+        <link rel='canonical' href={CLIENT_URI} />
+        <meta charSet='utf-8' />
         <meta name='title' content={title} />
         <meta name='description' content={description} />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
