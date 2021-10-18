@@ -13,7 +13,7 @@ const SaveBox = () => {
     setTimeout(() => {
       dispatch(saveText());
     }, 700);
-  }, []);
+  }, [dispatch]);
 
   return (
     <BoxWrapper>
