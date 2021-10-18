@@ -18,16 +18,18 @@ const SharingModal = ({ updateModal }) => {
 
   return (
     <Link to={`/d/${linkId}`} css={link}>
-      <ModalWrapper onClick={() => updateModal(false)} />
-      <ModalWindow>
-        <IconWrapper onClick={handleCopy} >
-          <AiOutlineLink css={icon} />
-        </IconWrapper>
-        <InputWrapper>
-          <input type='text' value={`${CLIENT_URI}/d/${linkId}`} ref={linkValue} readOnly />
-          <button onClick={handleCopy}>복사</button>
-        </InputWrapper>
-      </ModalWindow>
+      <Background onClick={() => updateModal(false)} />
+      <ModalWrapper>
+        <ModalWindow>
+          <IconWrapper onClick={handleCopy} >
+            <AiOutlineLink css={icon} />
+          </IconWrapper>
+          <InputWrapper>
+            <input type='text' value={`${CLIENT_URI}/d/${linkId}`} ref={linkValue} readOnly />
+            <button onClick={handleCopy}>복사</button>
+          </InputWrapper>
+        </ModalWindow>
+      </ModalWrapper>
     </Link>
   );
 };
@@ -45,7 +47,7 @@ const icon = css`
   color: #ffffff;
 `;
 
-const ModalWrapper = styled.div`
+const Background = styled.div`
   position: fixed;
   z-index: 100;
   top: 0;
@@ -55,15 +57,19 @@ const ModalWrapper = styled.div`
   background: rgba(0, 0, 0, 0.25);
 `;
 
+const ModalWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  left: 50%;
+  justify-content: center;
+`;
+
 const ModalWindow = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
   width: 400px;
   height: 160px;
   padding: 40px;
   text-align: center;
-  transform: translateX(-50%) translateY(-20%);
   z-index: 200;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.18);

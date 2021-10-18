@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 /** @jsxImportSource @emotion/react */
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import { useDispatch } from 'react-redux';
+
+import { saveText } from '../../features/slice';
 
 const SaveBox = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(saveText());
+    }, 700);
+  }, [dispatch]);
+
   return (
     <BoxWrapper>
       <Box>저장되었습니다.</Box>
@@ -27,7 +38,7 @@ const BoxWrapper = styled.div`
   left: 50%;
   top: 90%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 5000;
 `;
 
 const Box = styled.div`
