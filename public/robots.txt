@@ -1,4 +1,3 @@
-# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://www.easyme.online/sitemap.xml
 User-agent: *
-Disallow:
-Sitemap: https://easyme.online/sitemap.xml
+Allow: /
