@@ -31,6 +31,7 @@ const Markdown = styled(MarkdownPreview)`
   box-sizing: border-box;
   background-color: white;
   padding: 20px;
+  padding-bottom: 70px;
   border: none;
   width: 50%;
 

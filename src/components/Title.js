@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useRouteMatch } from 'react-router';
 
-import character from '../assets/easyme.png';
+import character from '../assets/images/easyme.png';
 
 const Title = () => {
   const { url } = useRouteMatch();

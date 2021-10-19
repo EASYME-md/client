@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { addLinkId, addText, addTextArea, saveText, addError } from '../features/slice';
@@ -11,6 +11,7 @@ import { saveContents } from '../api';
 const Editor = () => {
   const inputText = useRef();
   const dispatch = useDispatch();
+  const history = useHistory();
   const { pathname } = useLocation();
   const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
 
@@ -46,9 +47,7 @@ const Editor = () => {
 
         dispatch(addLinkId(id));
         dispatch(saveText());
-        setTimeout(() => {
-          window.location.href = `/d/${id}`;
-        }, 700);
+        history.push(`/d/${id}`);
       }
 
       if (link) {
@@ -62,9 +61,7 @@ const Editor = () => {
         dispatch(addLinkId(link));
         dispatch(saveText());
         saveContents(link, text);
-        setTimeout(() => {
-          window.location.href = `/d/${link}`;
-        }, 700);
+        history.push(`/d/${link}`);
       }
     }
 
@@ -115,6 +112,7 @@ const Editor = () => {
       onChange={onChangeText}
       onKeyDown={handleKeyDown}
       ref={inputText}
+      spellCheck='false'
     />
   );
 };
@@ -122,6 +120,8 @@ const Editor = () => {
 const TextArea = styled.textarea`
   resize: none;
   box-sizing: border-box;
+  font-family: 'Noto Sans KR';
+  font-size: 16px;
   padding: 20px;
   border: none;
   border-right: 1px solid #dddddd;

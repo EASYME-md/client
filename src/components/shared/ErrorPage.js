@@ -4,17 +4,23 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const ErrorPage = ({ message }) => {
+  const NOT_FOUND = '404 Not Found';
+
   return (
     <Wrapper>
-      <State>{message}</State>
+      <State>
+        {message === NOT_FOUND
+          ? message
+          : '일시적인 오류가 발생했습니다.'
+        }</State>
       <Message>
-        {message === '404 Not Found'
+        {message === NOT_FOUND
           ? <>
             <div>요청한 페이지를 찾을 수 없습니다. 공유되지 않은 주소입니다.</div>
             <div>공유를 원할 경우, 툴바 가장 오른쪽에 공유 버튼을 눌러주세요.</div>
           </>
           : <>
-            <div>알 수 없는 오류입니다. 잠시 후에 다시 시도해주세요.</div>
+            <div>잠시 후에 다시 시도해주세요.</div>
           </>
         }
       </Message>
@@ -38,7 +44,7 @@ const Wrapper = styled.div`
 
 const State = styled.div`
   margin-bottom: 10px;
-  font-size: 40px;
+  font-size: 30px;
 `;
 
 const Message = styled.div`

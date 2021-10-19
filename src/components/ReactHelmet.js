@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import favicon from '../assets/easyme.ico';
-import image from '../assets/preview.png';
+import favicon from '../assets/images/easyme.ico';
+import image from '../assets/images/preview.png';
 
 const ReactHelmet = () => {
   const CLIENT_URI = process.env.REACT_APP_CLIENT_URI;
@@ -12,8 +12,9 @@ const ReactHelmet = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <meta charSet='utf-8' />
         <link rel='icon' href={favicon} />
+        <link rel='canonical' href={CLIENT_URI} />
+        <meta charSet='utf-8' />
         <meta name='title' content={title} />
         <meta name='description' content={description} />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
