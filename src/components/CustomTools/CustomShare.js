@@ -53,7 +53,7 @@ const CustomShare = () => {
   return (
     <>
       {isShowingModal && <SharingModal updateModal={setIsShowingModal} />}
-      <button title='share' onClick={handleButton}>
+      <button title='Share' onClick={handleButton}>
         <FaShareSquare />
       </button>
     </>
