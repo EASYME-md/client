@@ -3,6 +3,7 @@
 <br>
 
 # 😉 EASYME.md
+
 ![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e4b6f69b-eaaf-465e-8a50-218a405dca2f/deploy-status)](https://app.netlify.com/sites/easymemd/deploys)
 
