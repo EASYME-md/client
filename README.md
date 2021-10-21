@@ -3,7 +3,8 @@
 <br>
 
 # 😉 EASYME.md
-![Generic badge](https://img.shields.io/badge/version-0.0.1-green.svg)
+
+![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e4b6f69b-eaaf-465e-8a50-218a405dca2f/deploy-status)](https://app.netlify.com/sites/easymemd/deploys)
 
 `#README` `#Markdown` `#리드미` `#빠르고쉽게` `#에디터`   
@@ -90,6 +91,7 @@ EASYME.md를 통해 조금이라도 개발자들이 README를 작성하는데 �
 # 📈 Release Note
 | version | log |
 | --- | --- |
+| 0.1.0 | 툴바에 텍스트 전체 삭제 기능 추가 |
 | ~ 0.0.1 | 기능 적용시 스크롤 최상단으로 가는 현상 개선, 저장 및 공유 기능 개선 |
 
 <br>
