@@ -25,6 +25,7 @@ import CustomTable from './CustomTools/CustomTable';
 import CustomEditorView from './CustomTools/CustomEditorView';
 import CustomMarkdownView from './CustomTools/CustomMarkdownView';
 import CustomFullScreen from './CustomTools/CustomFullScreen';
+import CustomAllTextRemoval from './CustomTools/CustomAllTextRemoval';
 import CustomShare from './CustomTools/CustomShare';
 import SectionLine from './shared/SectionLine';
 
@@ -33,6 +34,7 @@ const CustomToolbar = () => {
     <ToolbarWrapper>
       <CustomRedo />
       <CustomUndo />
+      <CustomAllTextRemoval />
       <SectionLine />
       <CustomHeader />
       <SectionLine />
