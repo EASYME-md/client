@@ -6,7 +6,9 @@ import { nanoid } from 'nanoid';
 
 import { addLinkId, addText, addTextArea, saveText, addError } from '../features/slice';
 import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
+import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
 import { saveContents } from '../api';
+import { keyType } from '../constants';
 
 const Editor = () => {
   const inputText = useRef();
@@ -26,9 +28,15 @@ const Editor = () => {
   const handleKeyDown = async (e) => {
     const isMetaKey = e.metaKey || e.ctrlKey;
 
-    if (e.code === 'KeyS' && isMetaKey) {
+    if (e.keyCode === keyType.TAB) {
       e.preventDefault();
+      const resultValue = addTypeCurrentPosition(inputText.current, '  ');
 
+      dispatch(addText(resultValue));
+    }
+
+    if (e.keyCode === keyType.S && isMetaKey) {
+      e.preventDefault();
       let link = pathname.replace('/d/', '');
 
       if (link === '/d') {
@@ -65,26 +73,26 @@ const Editor = () => {
       }
     }
 
-    if (e.code === 'KeyB' && isMetaKey) {
+    if (e.keyCode === keyType.B && isMetaKey) {
       const resultValue = addTypeBeforeAndAfter(inputText.current, '**');
 
       dispatch(addText(resultValue));
     }
 
-    if (e.code === 'KeyI' && isMetaKey) {
+    if (e.keyCode === keyType.I && isMetaKey) {
       const resultValue = addTypeBeforeAndAfter(inputText.current, '*');
 
       dispatch(addText(resultValue));
     }
 
-    if (e.code === 'KeyD' && isMetaKey) {
+    if (e.keyCode === keyType.D && isMetaKey) {
       e.preventDefault();
       const resultValue = addTypeBeforeAndAfter(inputText.current, '<s>', '</s>');
 
       dispatch(addText(resultValue));
     }
 
-    if (e.code === 'KeyU' && isMetaKey) {
+    if (e.keyCode === keyType.U && isMetaKey) {
       e.preventDefault();
       const resultValue = addTypeBeforeAndAfter(inputText.current, '<u>', '</u>');
 

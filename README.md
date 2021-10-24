@@ -154,7 +154,7 @@ CLIENT_URI=https://easyme.online
 - React Helmet
 - Redux Toolkit
 - Redux Saga
-- Goggle Analytics
+- Google Analytics
 - Emotion
 
 ## Server
