@@ -39,38 +39,20 @@ const Editor = () => {
       e.preventDefault();
       let link = pathname.replace('/d/', '');
 
-      if (link === '/d') {
-        link = '';
+      if (link === '/d' || !link) {
+        link = nanoid(10);
       }
 
-      if (!link) {
-        const id = nanoid(10);
-
-        try {
-          await saveContents(id, text);
-        } catch (err) {
-          dispatch(addError(err));
-          return;
-        }
-
-        dispatch(addLinkId(id));
-        dispatch(saveText());
-        history.push(`/d/${id}`);
+      try {
+        await saveContents(link, text);
+      } catch (err) {
+        dispatch(addError(err));
+        return;
       }
 
-      if (link) {
-        try {
-          await saveContents(link, text);
-        } catch (err) {
-          dispatch(addError(err));
-          return;
-        }
-
-        dispatch(addLinkId(link));
-        dispatch(saveText());
-        saveContents(link, text);
-        history.push(`/d/${link}`);
-      }
+      dispatch(addLinkId(link));
+      dispatch(saveText());
+      history.push(`/d/${link}`);
     }
 
     if (e.keyCode === keyType.B && isMetaKey) {
