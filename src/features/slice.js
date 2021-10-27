@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import WELCOME_MESSAGE from '../constants/welcomeMessage';
 
@@ -59,19 +59,6 @@ const name = 'contents';
 const slice = createSlice({
   name, initialState, reducers,
 });
-
-const selectAllState = createSelector(
-  state => state.isLoading,
-  state => state.text,
-  state => state.error,
-  (isLoading, text, error) => {
-    return { isLoading, text, error };
-  }
-);
-
-export const contentsSelector = {
-  all: state => selectAllState(state[name]),
-};
 
 export const contents = slice.name;
 export const {
