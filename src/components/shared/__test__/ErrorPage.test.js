@@ -7,7 +7,7 @@ import ErrorPage from '../ErrorPage';
 
 describe('<ErrorPage />', () => {
   const notFoundMessage = '요청한 페이지를 찾을 수 없습니다. 공유되지 않은 주소입니다.';
-  const errorMessage = '알 수 없는 오류입니다. 잠시 후에 다시 시도해주세요.';
+  const errorMessage = '잠시 후에 다시 시도해주세요.';
 
   it('should render 404 Not Found', () => {
     const { getByText } = render(
@@ -36,13 +36,13 @@ describe('<ErrorPage />', () => {
       </Router>
     );
 
-    const state = getByText('500 Internal server error');
+    const state = getByText('일시적인 오류가 발생했습니다.');
     const message = getByText(errorMessage);
 
     expect(state).toBeInTheDocument();
     expect(message).toBeInTheDocument();
 
-    expect(state).toHaveTextContent('500 Internal server error');
+    expect(state).toHaveTextContent('일시적인 오류가 발생했습니다.');
     expect(message).toHaveTextContent(errorMessage);
     expect(message).not.toHaveTextContent(notFoundMessage);
   });
