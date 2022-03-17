@@ -1,4 +1,4 @@
-![cartoon](readme-assets/cartoon.png)
+![cartoon](/client/public/assets/readme/cartoon.png)
 
 <br>
 
@@ -13,7 +13,7 @@ README.md를 쉽게 작성하는 방법! **EASYME.md**
 
 ---
 
-![cover](readme-assets/cover.png)
+![cover](/client/public/assets/readme/cover.png)
 
 Markdown 문법, 알고는 있는데.. README.md 작성할 때만 되면 버벅거리는 당신.   
 지금 'Markdown 사용법'이라고 검색하고 계신 거 아니죠? 🤭   
@@ -31,15 +31,27 @@ Markdown 문법, 알고는 있는데.. README.md 작성할 때만 되면 버벅�
 - [📖 Contents](#-contents)
 - [🌈 Background](#-background)
 - [🔗 Link](#-link)
+  - [Github Repositories](#github-repositories)
 - [🔍 Preview](#-preview)
 - [🛠 Features](#-features)
 - [📈 Release Note](#-release-note)
 - [⚠️ Requirement](#️-requirement)
 - [⚙️ Installation](#️-installation)
+  - [Setup](#setup)
+  - [Client](#client)
+  - [Server](#server)
 - [🪃 Skills](#-skills)
+  - [Client](#client-1)
+  - [Server](#server-1)
+  - [Test](#test)
 - [🪛 Project Control](#-project-control)
 - [🚀 Deployment](#-deployment)
 - [🧗 Challenges](#-challenges)
+  - [1. React Quill을 선택, 그리고 그 안에서 도전](#1-react-quill을-선택-그리고-그-안에서-도전)
+    - [1) 에디터에 HTML문법이 자동으로 적용되는 현상](#1-에디터에-html문법이-자동으로-적용되는-현상)
+    - [2) GET 요청을 통해 데이터를 받아올 때 적용이 되지 않는 현상](#2-get-요청을-통해-데이터를-받아올-때-적용이-되지-않는-현상)
+  - [2. React Quill을 걷어내다](#2-react-quill을-걷어내다)
+  - [3. Redo, Undo가 작동하지 않다](#3-redo-undo가-작동하지-않다)
 - [🙏 마무리하며..](#-마무리하며)
 
 <br>
@@ -64,7 +76,7 @@ EASYME.md를 통해 조금이라도 개발자들이 README를 작성하는데 �
 
 # 🔍 Preview
 
-![title](readme-assets/preview.gif)
+![title](/client/public/assets/readme/preview.gif)
 
 <br>
 
