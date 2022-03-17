@@ -1,13 +1,15 @@
-const WELCOME_MESSAGE = `# 🙌 안녕하세요. 한재원입니다!   
+const WELCOME_MESSAGE = `## 🙌 안녕하세요. EASYME.md를 만든 원아입니다!
+![easyme](/assets/readme/cartoon.png)   
 
 ## ❓ EASYME.md가 뭐예요?   
-- **EASYME.md**는 **<u>개발자가 README.md를 좀 더 쉽게 작성할 수 있도록</u>** 하기 위해 만들었습니다.   
-- 블로그에서 글을 쓰는 것처럼 쉽게 글을 작성하고 스타일을 적용하면 오른쪽(👉)에 미리보기로 확인하실 수 있습니다.   
-- 스타일을 적용하면 마크다운 문법 및 md 파일에서 인식할 수 있는 소스코드가 이곳에 자동으로 적용됩니다.   
+- **EASYME.md**는 **<u>개발자가 README.md를 좀 더 쉽게 작성할 수 있도록</u>** 하기 위해 만들었어요.   
+- 블로그에서 글을 쓰는 것처럼 쉽게 글을 작성하고 스타일을 적용하면 오른쪽(👉)에 미리보기로 확인하실 수 있어요.   
+- 스타일을 적용하면 마크다운 문법 및 md 파일에서 인식할 수 있는 소스코드가 자동으로 적용돼요.   
+- 커서 위치, 드래그한 영역 등에 따라 스타일을 적용할 수 있으니 자유롭게 사용해보세요!
 - 복사하기를 통해 본문 내용을 복사하고 여러분의 README에 적용해보세요.   
 
 ## 🙋‍♀️ 좀 더 구체적으로 가르쳐주세요!   
-1.  왼쪽 공간에서 블로그에 글을 쓰는 것처럼 README를 작성해주세요!   
+1. 왼쪽 공간에서 블로그에 글을 쓰는 것처럼 README를 작성해주세요!   
 2. 👆 위에 툴바창에 보이는 다양한 스타일을 적용해보세요!   
 3. 다 작성하셨나요? 예쁘게 잘 나왔는지 오른쪽 미리보기 화면에서 확인해보세요.   
 4. 오른쪽에 작성한 글 전체를 복사하세요!   
@@ -87,12 +89,11 @@ const WELCOME_MESSAGE = `# 🙌 안녕하세요. 한재원입니다!
    
 ## Link   
 ### General link
-- [🚗 Visit "EASYME.md" Github](https://github.com/EASYME-md/client)   
-- [🙋‍♂️ Visit "Jaewon Han" Github](https://github.com/onealog)
+- [🚗 Visit EASYME.md's Repo](https://github.com/EASYME-md/client)   
+- [🙋‍♂️ Visit ONE:A's Github](https://github.com/onealog)
 
 ### Image link
-![onealog](https://i.ibb.co/sPJNDcc/onealog.jpg)   
-Hello! I'm Jaewon Han 😃 
+![onealog](/assets/readme/easyme.png)   
    
 <br>   
    
@@ -103,14 +104,14 @@ Hello! I'm Jaewon Han 😃
 ### Code block
 \`\`\`js
 function makeDeveloper(name, language) {
-  if (name === 'Jaewon' && language === 'JavaScript') {
+  if (name === 'ONE:A' && language === 'JavaScript') {
     return 'perfect!';
   }
 
   return false;
 }
 
-makeDeveloper('Jaewon', 'JavaScript');
+makeDeveloper('ONE:A', 'JavaScript');
 \`\`\`
 
 <br>   
