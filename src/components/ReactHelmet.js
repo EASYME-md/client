@@ -17,8 +17,9 @@ const ReactHelmet = () => {
         <meta charSet='utf-8' />
         <meta name='title' content={title} />
         <meta name='description' content={description} />
+        <meta name='keywords' contents='easyme, readme, 리드미, 이지미' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta content='index' name='robots' />
+        <meta name='robots' content='index' />
 
         <meta property='og:type' content='website' />
         <meta property='og:title' content={title} />
@@ -32,7 +33,7 @@ const ReactHelmet = () => {
         <meta name='twitter:image' content={image} />
       </Helmet>
     </HelmetProvider>
-  )
+  );
 };
 
-export default ReactHelmet
+export default ReactHelmet;
