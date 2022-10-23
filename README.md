@@ -1,8 +1,16 @@
+# ❗️알림❗️
+
+현재 도메인 만료가 되어서 다른 도메인으로 사이트를 옮겼습니다.   
+바뀐 도메인은 https://www.easy-me.com/ 이며, 아직 서버 설정을 하지 않았습니다.   
+그래서 저장(`Ctrl + S`, `Cmd + S`) 기능이 현재 작동하지 않으니 참고 부탁드려요.   
+
+---
+
 ![cartoon](public/assets/readme/cartoon.png)
 
 <br>
 
-# 😉 EASYME.md
+# 😉 [EASYME.md](https://www.easy-me.com/)
 
 ![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e4b6f69b-eaaf-465e-8a50-218a405dca2f/deploy-status)](https://app.netlify.com/sites/easymemd/deploys)
@@ -10,6 +18,8 @@
 `#README` `#Markdown` `#리드미` `#빠르고쉽게` `#에디터`   
 
 README.md를 쉽게 작성하는 방법! **EASYME.md**   
+
+**사이트 바로 가기 👉 [클릭!](https://www.easy-me.com/)**
 
 ---
 
@@ -27,6 +37,7 @@ Markdown 문법, 알고는 있는데.. README.md 작성할 때만 되면 버벅�
 
 # 📖 Contents
 
+- [❗️알림❗️](#️알림️)
 - [😉 EASYME.md](#-easymemd)
 - [📖 Contents](#-contents)
 - [🌈 Background](#-background)
@@ -65,7 +76,7 @@ EASYME.md를 통해 조금이라도 개발자들이 README를 작성하는데 �
 
 # 🔗 Link
 
-- [https://www.easyme.online/](https://www.easyme.online/)
+- [https://www.easy-me.com](https://www.easy-me.com/)
 
 ## Github Repositories
 
@@ -134,8 +145,8 @@ npm start
 - root 디렉토리에 `.env` 파일을 생성하고 `<>`에 환경변수를 입력 후 저장해주세요.
 
 ```
-REACT_APP_SERVER_URI=https://api.easyme.online
-REACT_APP_CLIENT_URI=https://easyme.online
+REACT_APP_SERVER_URI=https://api.easy-me.com
+REACT_APP_CLIENT_URI=https://easy-me.com
 REACT_APP_TRACKING_ID=<GA Tracking ID>
 ```
 
@@ -152,7 +163,7 @@ npm start
 
 ```
 MONGODB_ADDRESS=<mongoDB address>
-CLIENT_URI=https://easyme.online
+CLIENT_URI=https://easy-me.com
 ```
 
 <br>
