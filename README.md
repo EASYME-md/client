@@ -1,3 +1,5 @@
+![cartoon](public/assets/readme/cartoon.png)
+
 # 😉 [EASYME.md](https://www.easy-me.com/)
 
 ![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg)
