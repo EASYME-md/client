@@ -17,6 +17,7 @@ const ReactHelmet = () => {
         <meta name='keywords' contents='easyme, readme, 리드미, 이지미, markdown, markdownsite, 마크다운, 마크다운작성사이트' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta name='robots' content='index' />
+        <meta name="google-site-verification" content="sioQswZ6K0vzDLaveDWBachAp5y9pCFuv_2widqDXc4" />
 
         <link rel='icon' href={favicon} />
         <link rel='canonical' href={CLIENT_URI} />
