@@ -1,25 +1,26 @@
 import React from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 import favicon from '../assets/images/easyme.ico';
 import image from '../assets/images/preview.png';
 
 const ReactHelmet = () => {
   const CLIENT_URI = process.env.REACT_APP_CLIENT_URI;
-  const title = 'EASYME.md | 리드미를 쉽게! 이지미';
-  const description = 'README.md를 쉽게 작성하는 방법, EASYME.md!';
+  const title = 'EASYME.md | 리드미, 마크다운 작성 사이트';
+  const description = 'EASYME.md(이지미)는 README(리드미) 작성, Markdown 문법이 익숙하지 않은 사람들을 위해 만든 사이트입니다.';
 
   return (
-    <HelmetProvider>
       <Helmet>
+        <title>{title}</title>
+
+        <meta name='description' content={description} />
+        <meta name='keywords' contents='easyme, readme, 리드미, 이지미, markdown, markdownsite, 마크다운, 마크다운작성사이트' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta name='robots' content='index' />
+
         <link rel='icon' href={favicon} />
         <link rel='canonical' href={CLIENT_URI} />
         <meta charSet='utf-8' />
-        <meta name='title' content={title} />
-        <meta name='description' content={description} />
-        <meta name='keywords' contents='easyme, readme, 리드미, 이지미' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta name='robots' content='index' />
 
         <meta property='og:type' content='website' />
         <meta property='og:title' content={title} />
@@ -32,7 +33,6 @@ const ReactHelmet = () => {
         <meta name='twitter:description' content={description} />
         <meta name='twitter:image' content={image} />
       </Helmet>
-    </HelmetProvider>
   );
 };
 
