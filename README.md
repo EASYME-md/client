@@ -3,7 +3,11 @@
 # 😉 [EASYME.md](https://www.easy-me.com/)
 
 ![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e4b6f69b-eaaf-465e-8a50-218a405dca2f/deploy-status)](https://app.netlify.com/sites/easymemd/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e4b6f69b-eaaf-465e-8a50-218a405dca2f/deploy-status)](https://app.netlify.com/sites/easymemd/deploys)   
+<a href="https://www.buymeacoffee.com/oneahan">
+  <img src="public/assets/readme/bmac.webp" alt="Buy Me a Coffee" width="220" />
+</a>
+
 
 `#README` `#Markdown` `#리드미` `#빠르고쉽게` `#에디터`   
 
