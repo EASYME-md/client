@@ -1,34 +1,31 @@
 import React from 'react';
 import { IoText } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
-import { replace } from 'text-field-edit';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { insert } from 'text-field-edit';
 
 import { addText } from '../../features/slice';
 
 const CustomFirstLetterUppercase = () => {
   const dispatch = useDispatch();
-  const { textArea } = useSelector((state) => state.contents);
+  const { textArea } = useSelector((state) => state.contents, shallowEqual);
 
   const handleButton = () => {
-    const scroll = textArea.scrollTop;
     const startPosition = textArea.selectionStart;
     const endPosition = textArea.selectionEnd;
-    const draggedLength = endPosition - startPosition;
+    if (startPosition === endPosition) return;
 
-    const startText = textArea.value.substring(startPosition, 0);
-    const endText = textArea.value.substring(startPosition + draggedLength);
+    const scroll = textArea.scrollTop;
     const draggedText = textArea.value.substring(startPosition, endPosition);
     const firstLetter = draggedText.substring(0, 1).toUpperCase();
     const restLetters = draggedText.substring(1).toLowerCase();
-    const result = startText + firstLetter + restLetters + endText;
+    const transformed = firstLetter + restLetters;
 
-    replace(textArea, textArea.value, result);
     textArea.focus();
+    insert(textArea, transformed);
+    textArea.setSelectionRange(startPosition, endPosition);
     textArea.scrollTop = scroll;
-    textArea.selectionStart = startPosition + draggedLength;
-    textArea.selectionEnd = textArea.selectionStart;
 
-    dispatch(addText(result));
+    dispatch(addText(textArea.value));
   };
 
   return (

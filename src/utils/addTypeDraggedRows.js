@@ -1,51 +1,29 @@
-import { replace } from 'text-field-edit';
+import { insert } from 'text-field-edit';
 
 const addTypeDraggedRows = (textArea, type) => {
-  let result = '';
-  let startPosition = textArea.selectionStart;
-  const endPosition = textArea.selectionEnd;
   const scroll = textArea.scrollTop;
-  const startRow = textArea.value.substring(0, startPosition).split('\n');
-  const startRowLength = startRow[startRow.length - 1].length;
-  const draggedRows = textArea.value.substring(startPosition, endPosition).split('\n');
+  const selStart = textArea.selectionStart;
+  const selEnd = textArea.selectionEnd;
+  const value = textArea.value;
 
-  if (!type) {
-    for (let i = 0; i < draggedRows.length; i++) {
-      type = `${i + 1}. `;
+  const beforeSelection = value.substring(0, selStart);
+  const firstRowStart = beforeSelection.lastIndexOf('\n') + 1;
 
-      if (i === 0) {
-        result = textArea.value.substring(0, startPosition - startRowLength) + type + textArea.value.substring(startPosition - startRowLength);
+  const affectedText = value.substring(firstRowStart, selEnd);
+  const rows = affectedText.split('\n');
 
-        startPosition += type.length;
-        continue;
-      }
+  const prefixedRows = type
+    ? rows.map((row) => type + row)
+    : rows.map((row, i) => `${i + 1}. ${row}`);
+  const newText = prefixedRows.join('\n');
 
-      const nextRow = draggedRows[i - 1].length + 1;
-      startPosition += nextRow;
-      result = result.substring(0, startPosition) + type + result.substring(startPosition);
-      startPosition += type.length;
-    }
-  } else {
-    for (let i = 0; i < draggedRows.length; i++) {
-      if (i === 0) {
-        result = textArea.value.substring(0, startPosition - startRowLength) + type + textArea.value.substring(startPosition - startRowLength);
-
-        startPosition += type.length;
-        continue;
-      }
-
-      const nextRow = draggedRows[i - 1].length + 1;
-      startPosition += nextRow;
-      result = result.substring(0, startPosition) + type + result.substring(startPosition);
-      startPosition += type.length;
-    }
-  }
-
-  replace(textArea, textArea.value, result);
   textArea.focus();
+  textArea.setSelectionRange(firstRowStart, selEnd);
+  insert(textArea, newText);
+
+  const lengthDiff = newText.length - affectedText.length;
+  textArea.setSelectionRange(selStart + (type ? type.length : '1. '.length), selEnd + lengthDiff);
   textArea.scrollTop = scroll;
-  textArea.selectionStart = startPosition;
-  textArea.selectionEnd = textArea.selectionStart;
 
   return textArea.value;
 };
