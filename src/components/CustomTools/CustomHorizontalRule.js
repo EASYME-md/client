@@ -1,13 +1,13 @@
 import React from 'react';
 import { AiOutlineLine } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { addText } from '../../features/slice';
 import addTypeCurrentPosition from '../../utils/addTypeCurrentPosition';
 
 const CustomHorizontalRule = () => {
   const dispatch = useDispatch();
-  const { textArea } = useSelector((state) => state.contents);
+  const { textArea } = useSelector((state) => state.contents, shallowEqual);
 
   const handleButton = () => {
     const resultValue = addTypeCurrentPosition(textArea, '\n---\n');

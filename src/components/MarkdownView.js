@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const MarkdownView = () => {
-  const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
+  const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents, shallowEqual);
 
   const handleClassName = () => {
     if (fullEditor) {
@@ -48,6 +48,13 @@ const Markdown = styled(MarkdownPreview)`
       `;
     }
   }};
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50%;
+    padding: 12px;
+    padding-bottom: 40px;
+  }
 `;
 
-export default MarkdownView;
+export default React.memo(MarkdownView);

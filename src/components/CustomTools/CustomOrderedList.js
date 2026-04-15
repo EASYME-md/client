@@ -1,13 +1,13 @@
 import React from 'react';
 import { FaListOl } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { addText } from '../../features/slice';
 import addTypeDraggedRows from '../../utils/addTypeDraggedRows';
 
 const CustomOrderedList = () => {
   const dispatch = useDispatch();
-  const { textArea } = useSelector((state) => state.contents);
+  const { textArea } = useSelector((state) => state.contents, shallowEqual);
 
   const handleButton = () => {
     const resultValue = addTypeDraggedRows(textArea, false);
