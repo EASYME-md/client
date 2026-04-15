@@ -6,6 +6,7 @@ import { addText, addTextArea } from '../features/slice';
 import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
 import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
 import shareDocument from '../utils/shareDocument';
+import { saveDraft } from '../utils/draftStorage';
 import { keyType } from '../constants';
 
 const DISPATCH_DEBOUNCE_MS = 150;
@@ -31,13 +32,17 @@ const Editor = () => {
   const flushDispatch = (value) => {
     clearTimeout(debounceTimer.current);
     dispatch(addText(value));
+    saveDraft(value);
   };
 
   const onChangeText = (e) => {
     const value = e.target.value;
     setLocalText(value);
     clearTimeout(debounceTimer.current);
-    debounceTimer.current = setTimeout(() => dispatch(addText(value)), DISPATCH_DEBOUNCE_MS);
+    debounceTimer.current = setTimeout(() => {
+      dispatch(addText(value));
+      saveDraft(value);
+    }, DISPATCH_DEBOUNCE_MS);
   };
 
   const handleKeyDown = async (e) => {
