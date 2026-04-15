@@ -12,6 +12,7 @@ const initialState = {
   fullMarkdown: false,
   fullScreen: false,
   error: null,
+  shareUrl: '',
 };
 
 const reducers = {
@@ -42,6 +43,9 @@ const reducers = {
   saveText: (state) => {
     state.isSaved = !state.isSaved;
   },
+  setShareUrl: (state, action) => {
+    state.shareUrl = action.payload;
+  },
   load: (state) => {
     state.isLoading = true;
   },
@@ -64,6 +68,6 @@ export const contents = slice.name;
 export const {
   addLinkId, addText, addTextArea, resetError, addError,
   toggleEditor, toggleMarkdown, toggleFullScreen,
-  saveText, load, loadSuccess, loadFail } = slice.actions;
+  saveText, setShareUrl, load, loadSuccess, loadFail } = slice.actions;
 
 export default slice.reducer;
