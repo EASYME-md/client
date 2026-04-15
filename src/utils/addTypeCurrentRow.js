@@ -1,20 +1,18 @@
-import { replace } from 'text-field-edit';
+import { insert } from 'text-field-edit';
 
 const addTypeCurrentRow = (textArea, type) => {
   const scroll = textArea.scrollTop;
   const startPosition = textArea.selectionStart;
-  const currentRow = textArea.value.substring(0, startPosition).split('\n');
-  const currentRowLength = currentRow[currentRow.length - 1].length;
+  const beforeCursor = textArea.value.substring(0, startPosition);
+  const rowStart = beforeCursor.lastIndexOf('\n') + 1;
 
-  const startText = textArea.value.substring(0, startPosition - currentRowLength);
-  const endText = type + textArea.value.substring(startPosition - currentRowLength);
-  const result = startText + endText;
-
-  replace(textArea, textArea.value, result);
   textArea.focus();
+  textArea.setSelectionRange(rowStart, rowStart);
+  insert(textArea, type);
+
+  const newPosition = startPosition + type.length;
+  textArea.setSelectionRange(newPosition, newPosition);
   textArea.scrollTop = scroll;
-  textArea.selectionStart = startPosition - currentRowLength + type.length;
-  textArea.selectionEnd = textArea.selectionStart;
 
   return textArea.value;
 };

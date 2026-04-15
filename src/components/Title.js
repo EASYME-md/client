@@ -30,6 +30,11 @@ const Wrapper = styled.div`
   align-items: center;
   margin-top: 30px;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
 `;
 
 const ClickWrapper = styled.div`
@@ -51,6 +56,11 @@ const image = css`
   -ms-user-drag: none;
   -moz-user-drag: none;
   -webkit-user-drag: none;
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 const title = css`
@@ -62,6 +72,13 @@ const title = css`
   color: white;
   font-size: 4rem;
   text-shadow: 4px 6px 10px rgba(33, 40, 56, 0.2);
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+    padding-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `;
 
 export default Title;

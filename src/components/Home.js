@@ -1,26 +1,34 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import Title from './Title';
 import TextScreen from './TextScreen';
 import ErrorPage from './shared/ErrorPage';
 import Loading from './Loading';
-import { load, resetError } from '../features/slice';
+import { load, loadSuccess, resetError } from '../features/slice';
+import { parseShareHash } from '../utils/urlShare';
 
 const Home = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const { isLoading, error } = useSelector((state) => state.contents);
+  const { isLoading, error } = useSelector((state) => state.contents, shallowEqual);
 
   useEffect(() => {
+    dispatch(resetError());
+
+    const hashText = parseShareHash(window.location.hash);
+    if (hashText) {
+      dispatch(loadSuccess(hashText));
+      return;
+    }
+
     let link = pathname.replace('/d/', '');
 
     if (link === '/d') {
       link = '';
     }
 
-    dispatch(resetError());
     dispatch(load(link));
   }, [dispatch, pathname]);
 

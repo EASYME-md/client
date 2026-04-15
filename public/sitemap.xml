@@ -7,11 +7,15 @@
 
 <url>
   <loc>https://www.easy-me.com</loc>
-  <lastmod>2022-11-01</lastmod>
+  <lastmod>2026-04-15</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
 </url>
 <url>
   <loc>https://www.easy-me.com/d</loc>
-  <lastmod>2022-11-01</lastmod>
+  <lastmod>2026-04-15</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
 </url>
 
 </urlset>

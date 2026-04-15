@@ -1,13 +1,13 @@
 import React from 'react';
 import { AiOutlineCaretRight } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { addText } from '../../features/slice';
 import addTypeBeforeAndAfter from '../../utils/addTypeBeforeAndAfter';
 
 const CustomFold = () => {
   const dispatch = useDispatch();
-  const { textArea } = useSelector((state) => state.contents);
+  const { textArea } = useSelector((state) => state.contents, shallowEqual);
 
   const handleButton = () => {
     const resultValue = addTypeBeforeAndAfter(textArea, '\n<details><summary>', '\n</summary>\n\n*Write here!*\n</details>\n');

@@ -1,12 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { addText } from '../../features/slice';
 import addTypeCurrentRow from '../../utils/addTypeCurrentRow';
 
 const CustomHeader = () => {
   const dispatch = useDispatch();
-  const { textArea } = useSelector((state) => state.contents);
+  const { textArea } = useSelector((state) => state.contents, shallowEqual);
 
   const handleButton = (e) => {
     const targetValue = e.target.value;

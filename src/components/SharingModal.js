@@ -1,40 +1,53 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { AiOutlineLink } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const SharingModal = ({ updateModal }) => {
-  const CLIENT_URI = process.env.REACT_APP_CLIENT_URI;
+const SharingModal = ({ url, updateModal }) => {
   const linkValue = useRef();
-  const { linkId } = useSelector((state) => state.contents);
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(linkValue.current.defaultValue);
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch (err) {
+      linkValue.current.select();
+      document.execCommand('copy');
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
   };
 
   return (
-    <Link to={`/d/${linkId}`} css={link}>
+    <div css={link}>
       <Background onClick={() => updateModal(false)} />
       <ModalWrapper>
         <ModalWindow>
-          <IconWrapper onClick={handleCopy} >
+          <IconWrapper onClick={handleCopy}>
             <AiOutlineLink css={icon} />
           </IconWrapper>
           <InputWrapper>
-            <input type='text' value={`${CLIENT_URI}/d/${linkId}`} ref={linkValue} readOnly />
-            <button onClick={handleCopy}>복사</button>
+            <input
+              type='text'
+              value={url}
+              ref={linkValue}
+              readOnly
+              onMouseDown={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              onContextMenu={(e) => e.preventDefault()}
+            />
+            <button onClick={handleCopy}>{copied ? '복사됨' : '복사'}</button>
           </InputWrapper>
         </ModalWindow>
       </ModalWrapper>
-    </Link>
+    </div>
   );
 };
 
 SharingModal.propTypes = {
+  url: PropTypes.string.isRequired,
   updateModal: PropTypes.func.isRequired,
 };
 
@@ -49,7 +62,7 @@ const icon = css`
 
 const Background = styled.div`
   position: fixed;
-  z-index: 100;
+  z-index: 3000;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,19 +71,18 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  display: flex;
-  position: absolute;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  justify-content: center;
+  transform: translate(-50%, -50%);
+  z-index: 3100;
 `;
 
 const ModalWindow = styled.div`
-  position: absolute;
   width: 400px;
   height: 160px;
   padding: 40px;
   text-align: center;
-  z-index: 200;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
@@ -99,12 +111,17 @@ const InputWrapper = styled.div`
   border-radius: 3px;
   width: 100%;
   height: 40px;
-  background-color: #f9f9f9;;
+  background-color: #f9f9f9;
 
   input {
     width: 65%;
     border: none;
-    background-color: #f9f9f9;;
+    background-color: #f9f9f9;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
   }
 
   button {
@@ -115,7 +132,7 @@ const InputWrapper = styled.div`
     width: 25%;
     height: 100%;
     border: none;
-    background-color: #f9f9f9;;
+    background-color: #f9f9f9;
   }
 `;
 

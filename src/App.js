@@ -30,7 +30,7 @@ const App = () => {
         </Route>
       </Switch>
       <Route exact path='/'>
-        <Redirect to='/d' />
+        <Redirect to={{ pathname: '/d', hash: window.location.hash }} />
       </Route>
     </Router>
   );

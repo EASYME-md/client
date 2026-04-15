@@ -1,28 +1,43 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
-import { nanoid } from 'nanoid';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { addLinkId, addText, addTextArea, saveText, addError } from '../features/slice';
+import { addText, addTextArea } from '../features/slice';
 import addTypeBeforeAndAfter from '../utils/addTypeBeforeAndAfter';
 import addTypeCurrentPosition from '../utils/addTypeCurrentPosition';
-import { saveContents } from '../api';
+import shareDocument from '../utils/shareDocument';
 import { keyType } from '../constants';
+
+const DISPATCH_DEBOUNCE_MS = 150;
 
 const Editor = () => {
   const inputText = useRef();
   const dispatch = useDispatch();
-  const history = useHistory();
-  const { pathname } = useLocation();
-  const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents);
+  const { text, fullEditor, fullMarkdown } = useSelector((state) => state.contents, shallowEqual);
+
+  const [localText, setLocalText] = useState(text);
+  const debounceTimer = useRef();
 
   useEffect(() => {
     dispatch(addTextArea(inputText.current));
   }, [dispatch]);
 
+  useEffect(() => {
+    setLocalText((prev) => (prev === text ? prev : text));
+  }, [text]);
+
+  useEffect(() => () => clearTimeout(debounceTimer.current), []);
+
+  const flushDispatch = (value) => {
+    clearTimeout(debounceTimer.current);
+    dispatch(addText(value));
+  };
+
   const onChangeText = (e) => {
-    dispatch(addText(e.target.value));
+    const value = e.target.value;
+    setLocalText(value);
+    clearTimeout(debounceTimer.current);
+    debounceTimer.current = setTimeout(() => dispatch(addText(value)), DISPATCH_DEBOUNCE_MS);
   };
 
   const handleKeyDown = async (e) => {
@@ -32,53 +47,43 @@ const Editor = () => {
       e.preventDefault();
       const resultValue = addTypeCurrentPosition(inputText.current, '  ');
 
-      dispatch(addText(resultValue));
+      setLocalText(resultValue);
+      flushDispatch(resultValue);
     }
 
     if (e.keyCode === keyType.S && isMetaKey) {
       e.preventDefault();
-      let link = pathname.replace('/d/', '');
-
-      if (link === '/d' || !link) {
-        link = nanoid(10);
-      }
-
-      try {
-        await saveContents(link, text);
-      } catch (err) {
-        dispatch(addError(err));
-        return;
-      }
-
-      dispatch(addLinkId(link));
-      dispatch(saveText());
-      history.push(`/d/${link}`);
+      shareDocument(inputText.current, dispatch);
     }
 
     if (e.keyCode === keyType.B && isMetaKey) {
       const resultValue = addTypeBeforeAndAfter(inputText.current, '**');
 
-      dispatch(addText(resultValue));
+      setLocalText(resultValue);
+      flushDispatch(resultValue);
     }
 
     if (e.keyCode === keyType.I && isMetaKey) {
       const resultValue = addTypeBeforeAndAfter(inputText.current, '*');
 
-      dispatch(addText(resultValue));
+      setLocalText(resultValue);
+      flushDispatch(resultValue);
     }
 
     if (e.keyCode === keyType.D && isMetaKey) {
       e.preventDefault();
       const resultValue = addTypeBeforeAndAfter(inputText.current, '<s>', '</s>');
 
-      dispatch(addText(resultValue));
+      setLocalText(resultValue);
+      flushDispatch(resultValue);
     }
 
     if (e.keyCode === keyType.U && isMetaKey) {
       e.preventDefault();
       const resultValue = addTypeBeforeAndAfter(inputText.current, '<u>', '</u>');
 
-      dispatch(addText(resultValue));
+      setLocalText(resultValue);
+      flushDispatch(resultValue);
     }
   };
 
@@ -98,7 +103,7 @@ const Editor = () => {
     <TextArea
       id='textarea'
       className={handleClassName()}
-      value={text}
+      value={localText}
       onChange={onChangeText}
       onKeyDown={handleKeyDown}
       ref={inputText}
@@ -134,6 +139,15 @@ const TextArea = styled.textarea`
       `;
     }
   }};
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50%;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+    padding: 12px;
+    font-size: 15px;
+  }
 `;
 
 export default Editor;
