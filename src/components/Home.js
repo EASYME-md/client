@@ -8,6 +8,7 @@ import ErrorPage from './shared/ErrorPage';
 import Loading from './Loading';
 import { load, loadSuccess, resetError } from '../features/slice';
 import { parseShareHash } from '../utils/urlShare';
+import { loadDraft } from '../utils/draftStorage';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,14 @@ const Home = () => {
 
     if (link === '/d') {
       link = '';
+    }
+
+    if (!link) {
+      const draft = loadDraft();
+      if (draft) {
+        dispatch(loadSuccess(draft));
+        return;
+      }
     }
 
     dispatch(load(link));
