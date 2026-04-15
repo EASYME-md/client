@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 
 const TextScreenWrapper = ({ children }) => {
-  const { fullScreen } = useSelector((state) => state.contents);
+  const { fullScreen } = useSelector((state) => state.contents, shallowEqual);
 
   return (
     <Wrapper>
@@ -17,6 +17,10 @@ const TextScreenWrapper = ({ children }) => {
 const Wrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 96%;
+  }
 `;
 
 const ScreenWrapper = styled.div`
@@ -45,6 +49,10 @@ const ScreenWrapper = styled.div`
 
   @media (max-width: 819px) {
     top: 7%;
+  }
+
+  @media (max-width: 768px) {
+    height: 78vh;
   }
 
   @media (max-width: 333px) {
