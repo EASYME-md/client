@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SITE_URL = 'https://www.easy-me.com';
-const TITLE = 'EASYME.md | README·마크다운 작성이 쉬워지는 실시간 에디터';
+const TITLE = 'EASYME.md | 누구나 쉬운 README·리드미 온라인 마크다운 실시간 미리보기 에디터';
 const DESCRIPTION = 'EASYME.md(이지미)는 README와 Markdown 문법에 익숙하지 않아도 편하게 글을 작성할 수 있는 웹 에디터입니다. 툴바로 서식 적용, 실시간 미리보기, 링크 한 번으로 공유까지 지원합니다.';
 const IMAGE_URL = `${SITE_URL}/preview.png`;
 
